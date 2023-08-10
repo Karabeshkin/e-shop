@@ -14,7 +14,6 @@ const indexRouter = require('./routes/index.routes');
 
 config(app);
 
-
 app.use('/', indexRouter);
 
 app.listen(PORT, () => {
