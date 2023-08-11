@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(Product, { foreignKey: 'product_id' });
     }
   }
-  Comment.init(
+  Photo.init(
     {
       product_id: {
         allowNull: false,

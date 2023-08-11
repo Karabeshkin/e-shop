@@ -1,11 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router';
+import ProductsList from '../features/Products/ProductsList';
 
-function App() {
+function App():JSX.Element {
   return (
     <div className="App">
       Magic E-SHOP
+      <Routes>
+        <Route path="/prod" element={<ProductsList />} />
+      </Routes>
     </div>
   );
 }

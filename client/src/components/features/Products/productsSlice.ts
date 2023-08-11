@@ -12,9 +12,13 @@ const productsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(productsInit.fulfilled, (state, action) => {
-      state.products = action.payload;
-    });
+    builder
+      .addCase(productsInit.fulfilled, (state, action) => {
+        state.products = action.payload;
+      })
+      .addCase(productsInit.rejected, (state, action) => {
+        state.error = action.error.message;
+      });
   },
 });
 export default productsSlice.reducer;
