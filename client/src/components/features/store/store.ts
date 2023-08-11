@@ -1,9 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import productsSlice from '../Products/productsSlice';
 
-import rootReducer from './rootReducer';
+const store = configureStore({
+  // теперь функция combineReducers не нужна
+  reducer: {
+    products: productsSlice,
+  },
+});
 
-const store = createStore(rootReducer, composeWithDevTools());
-
-export default store;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
 
 export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
