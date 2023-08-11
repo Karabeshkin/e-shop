@@ -2,13 +2,16 @@ import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router';
 import ProductsList from '../features/Products/ProductsList';
+import Navbar from '../features/Navbar/Navbar';
+import CategoryList from '../features/Category/CategoryList';
 
-function App():JSX.Element {
+function App(): JSX.Element {
   return (
     <div className="App">
-      Magic E-SHOP
+      <Navbar />
       <Routes>
-        <Route path="/prod" element={<ProductsList />} />
+        <Route path="/" element={<CategoryList />} />
+        <Route path="/:title" element={<ProductsList />} />
       </Routes>
     </div>
   );

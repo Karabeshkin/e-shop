@@ -12,11 +12,15 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.TEXT,
       },
+      image: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
     },
     {
       sequelize,
       modelName: 'Category',
-    },
+    }
   );
   return Category;
 };
