@@ -8,6 +8,10 @@ const res = await fetch('/api/auth/reg', {
     },
     body: JSON.stringify(obj)
 });
+  if (!res.ok) {
+    const { message } = await res.json();
+    throw message;
+  }
   const data = await res.json();
   return data;
 };

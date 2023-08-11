@@ -1,14 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-// import authSlice from '../features/Auth/authSlice';
 import categoriesSlice from '../Category/categorySlice';
+import authSlice from '../Auth/authSlice';
 
 const store = configureStore({
-  // теперь функция combineReducers не нужна
   reducer: {
-    categories: categoriesSlice,
-    // auth: authSlice,
-  },
+  auth: authSlice,
+  categories: categoriesSlice,
+ },
 });
 
 export type AppDispatch = typeof store.dispatch;
