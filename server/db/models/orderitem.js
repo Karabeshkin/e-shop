@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Product, Order }) {
       this.belongsTo(Product, { foreignKey: 'product_id' });
       this.belongsTo(Order, { foreignKey: 'order_id' });
-    } 
+    }
   }
   OrderItem.init(
     {
@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'OrderItem',
-    },
+    }
   );
   return OrderItem;
 };
