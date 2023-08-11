@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const apiProductsRouter = require('./api/api.products.router');
+const apiProductsRouter = require('./api/api.categories.router');
 
-router.use('/api/products', apiProductsRouter);
+router.use('/api/categories', apiProductsRouter);
 
 module.exports = router;

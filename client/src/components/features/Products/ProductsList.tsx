@@ -12,7 +12,7 @@ function ProductsList(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <div>
+    <div> 
       {products.map((product) => (
         <ProductCard product={product} key={product.id} />
       ))}
