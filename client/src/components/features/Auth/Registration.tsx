@@ -1,27 +1,20 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import * as api from './api';
-import { RootState } from '../../store/store';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../store/store';
+import { registrationUser } from './authSlice';
 
 export default function Registration():JSX.Element {
-  const [login, setName] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+
   const { error } = useSelector((store:RootState) => store.auth);
   const { user } = useSelector((store:RootState) => store.auth);
-  console.log(user);
-
 
   const registr = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-
-    api.registrationFetch({ login, password, email, score: 0 })
-   .then((data) => {
-    console.log(data);
-
-    dispatch({ type: 'auth/registration', payload: data });
-});
+    dispatch(registrationUser({}))
   };
 
   return (
