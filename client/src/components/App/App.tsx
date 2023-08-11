@@ -1,11 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router';
+import ProductsList from '../features/Products/ProductsList';
+import Navbar from '../features/Navbar/Navbar';
+import CategoryList from '../features/Category/CategoryList';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
-      Magic E-SHOP
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<CategoryList />} />
+        <Route path="/:title" element={<ProductsList />} />
+      </Routes>
     </div>
   );
 }
