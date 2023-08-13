@@ -6,6 +6,7 @@ import CategoryList from '../features/Category/CategoryList';
 import CategoryPage from '../features/Category/CategoryPage';
 import AdminProductsList from '../features/Admin/AdminProductsList';
 import ProductPage from '../features/Products/ProductPage';
+import ProductsList from '../features/Products/ProductsList';
 
 
 function App(): JSX.Element {
