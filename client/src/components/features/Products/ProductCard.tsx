@@ -1,5 +1,6 @@
 import React from 'react';
-import { Product } from './type';
+import { Category, Product } from './type';
+import { Link } from 'react-router-dom';
 
 function ProductCard({ product }: { product: Product }): JSX.Element {
   return (
@@ -7,8 +8,6 @@ function ProductCard({ product }: { product: Product }): JSX.Element {
       <img src={product.Photos[0].url} alt="product" />
       <div>{product.title}</div>
       <div>{product.cost}</div>
-      <div>{product.description}</div>
-      <div>{product.category_id}</div>
     </div>
   );
 }
