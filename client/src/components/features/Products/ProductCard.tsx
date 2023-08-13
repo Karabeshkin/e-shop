@@ -7,6 +7,8 @@ function ProductCard({ product }: { product: Product }): JSX.Element {
       <img src={product.description} alt="product" />
       <div>{product.title}</div>
       <div>{product.cost}</div>
+      <div>{product.description}</div>
+      <div>{product.category_id}</div>
     </div>
   );
 }
