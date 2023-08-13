@@ -15,3 +15,10 @@ export type Authorization = {
   name: string;
   password: string;
 };
+
+export type State = {
+  user: User | {};
+  error: string;
+};
+
+

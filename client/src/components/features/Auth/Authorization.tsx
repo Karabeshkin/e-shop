@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as api from './api';
-import { RootState } from '../../store/store';
+
 
 export default function Authorization(): JSX.Element {
   const [login, setLogin] = useState('');
