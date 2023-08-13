@@ -3,8 +3,8 @@ import { State } from './type';
 import * as api from './api';
 
 export const initialState: State = { products: [], error: '' };
-export const productsInit = createAsyncThunk('products/init', () =>
-  api.initProductsFetch()
+export const productsInit = createAsyncThunk('products/init', (title: string) =>
+  api.initProductsFetch(title)
 );
 
 const productsSlice = createSlice({
