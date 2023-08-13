@@ -1,13 +1,13 @@
 import React from 'react';
-import { Category } from './type';
 import { Link } from 'react-router-dom';
+import { Category } from './type';
 
 function CategoryCard({ category }: { category: Category }): JSX.Element {
   return (
     <div>
-      <Link to={`/${category.title}`}>
+      <Link to={`/categories/${category.title}`}>
         <div>{category.title}</div>
-        <img src={category.image} alt="" />
+        <img src={category.image} alt="categoryImg" />
       </Link>
     </div>
   );
