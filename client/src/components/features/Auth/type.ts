@@ -2,6 +2,7 @@ export type Registration = {
   name: string;
   phone: string;
   password: string;
+  cpassword: string;
 };
 
 export type User = {
@@ -12,13 +13,16 @@ export type User = {
 };
 
 export type Authorization = {
-  name: string;
+  phone: string;
   password: string;
 };
 
 export type State = {
   user: User | {};
-  error: string;
+  error: string | undefined;
 };
 
-
+export type AuthState = {
+  user: User | null;
+  error: string | undefined;
+};

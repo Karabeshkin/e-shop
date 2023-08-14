@@ -23,3 +23,8 @@ export type State = {
   products: Product[];
   error: string | undefined;
 };
+
+export type DelCard = {
+  id: string;
+  message: string;
+};

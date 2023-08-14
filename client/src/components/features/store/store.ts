@@ -12,7 +12,6 @@ const store = configureStore({
     adminProducts: adminProductInitSlice,
     products: productsSlice,
     // auth: authSlice,
-
   },
 });
 
