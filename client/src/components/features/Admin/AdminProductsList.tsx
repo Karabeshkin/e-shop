@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
 import AdminProductCard from './AdminProductCard';
 import { initProduct } from './adminSlice';
+import AdminAddForm from './AdminAddForm';
 
 function AdminProductsList(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -16,6 +17,7 @@ function AdminProductsList(): JSX.Element {
 
   return (
     <div>
+      <AdminAddForm />
       {adminProducts.map((product) => (
         <AdminProductCard product={product} key={product.id} />
       ))}

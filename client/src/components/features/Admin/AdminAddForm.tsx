@@ -1,29 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../store/store';
+import { addProduct } from './adminSlice';
 
 function AdminAddForm(): JSX.Element {
+  const dispatch = useAppDispatch();
+  const categories = useSelector(
+    (store: RootState) => store.adminProducts.categories
+  );
+
+  const [name, setName] = useState('');
+  const [cost, setCost] = useState('');
+  const [categoryId, setCategoryId] = useState(1);
+  const [description, setDescription] = useState('');
+
+  const addAdminProduct = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    dispatch(
+      addProduct({
+        name,
+        cost: Number(cost),
+        categoryId,
+        description,
+      })
+    );
+  };
+
   return (
     <div>
-      <form action="submit">
+      <form action="submit" onSubmit={addAdminProduct}>
         <div>
           <input
             type="text"
             className="input_addItem"
             placeholder="Название товара"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             type="number"
             className="input_addItem"
             placeholder="Укажите цену"
+            value={cost}
+            onChange={(e) => setCost(e.target.value)}
           />
-          <select name="category" id="">
-            <option value="1">Чай</option>
-            <option value="2">Крупы</option>
-            <option value="3">Макароны</option>
+          <select
+            name="category"
+            onChange={(e) => setCategoryId(Number(e.target.value))}
+          >
+            {categories.map((category) => (
+              <option value={category.id}>{category.title}</option>
+            ))}
           </select>
           <input
             type="text"
             className="input_descriptionItem"
             placeholder="Описание товара"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <button type="submit" className="btn_addItem">

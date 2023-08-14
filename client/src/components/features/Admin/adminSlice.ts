@@ -1,14 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Product, State } from './type';
+import { AddProduct, Product, State } from './type';
 import * as api from './api';
 
-export const initialState: State = { products: [], error: '' };
+export const initialState: State = { products: [], categories: [], error: '' };
 export const initProduct = createAsyncThunk('admin/product/init', () =>
   api.initAdminProductFetch()
 );
 export const delProduct = createAsyncThunk(
   'admin/product/del',
   ({ product }: { product: Product }) => api.delAdminProductFetch({ product })
+);
+export const addProduct = createAsyncThunk(
+  'admin/product/add',
+  (obj: AddProduct) => api.addAdminProductFetch(obj)
 );
 
 const adminProductInitSlice = createSlice({
@@ -19,7 +23,8 @@ const adminProductInitSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(initProduct.fulfilled, (state, action) => {
-        state.products = action.payload;
+        state.products = action.payload.products;
+        state.categories = action.payload.categories;
       })
       .addCase(initProduct.rejected, (state, action) => {
         state.error = action.error.message;
@@ -30,6 +35,12 @@ const adminProductInitSlice = createSlice({
         );
       })
       .addCase(delProduct.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(addProduct.fulfilled, (state, action) => {
+        state.products.push(action.payload);
+      })
+      .addCase(addProduct.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },
