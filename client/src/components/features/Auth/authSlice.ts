@@ -1,14 +1,23 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Registration, State } from './type';
+import { Registration, AuthState } from './type';
 import * as api from './api';
 
-const initialState: State = { user: {}, error: '' };
+// наш ИНИШЛ СТЭЙТ
+const initialState: AuthState = {
+  user: null,
+  error: undefined,
+};
 
+// наша САНОЧКА
 export const registrationUser = createAsyncThunk(
   'authUser/registration', (obj: Registration) => api.registrationFetch(obj)
 );
+// const authorizationUser = createAsyncThunk(
+//   'authUser/authorization', (obj: Authorization) => api.authorizationFetch(obj)
+// );
 
-const authUserSlice = createSlice({
+// наш СЛАЙС
+const registrationUserSlice = createSlice({
   name: 'authUser',
   initialState,
   reducers: {},
@@ -16,11 +25,13 @@ const authUserSlice = createSlice({
     builder
     .addCase(registrationUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.error = '';
     })
     .addCase(registrationUser.rejected, (state, action) => {
       state.error = action.error.message;
-    })
+      state.user = null;
+    });
   }
 });
 
-export default authUserSlice.reducer;
+export default registrationUserSlice.reducer;

@@ -11,6 +11,7 @@ function ProductsList(): JSX.Element {
   const products = useSelector((store: RootState) => store.products.products);
   const { title } = useParams();
 
+
   useEffect(() => {
     if (title) {
       dispatch(productsInit(title));

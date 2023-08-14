@@ -1,38 +1,28 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import * as api from './api';
+import { useAppDispatch } from '../store/store';
 
 
 export default function Authorization(): JSX.Element {
-  const [login, setLogin] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const authorization = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     api
-      .authorizationFetch({ login, password })
+      .authorizationFetch({ phone, password })
       .then((data) => dispatch({ type: 'auth/authorization', payload: data }));
   };
 
   return (
     <div>
       <form onSubmit={authorization}>
-        <input
-          name="login"
-          placeholder="login"
-          required
-          onChange={(e) => setLogin(e.target.value)}
-        />
-        <input
-          name="password"
-          placeholder="password"
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">register</button>
+        <input name="phone" placeholder="phone" required onChange={(e) => setPhone(e.target.value)} />
+        <input name="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)} />
+        <button type="submit">Log In</button>
       </form>
     </div>
   );
