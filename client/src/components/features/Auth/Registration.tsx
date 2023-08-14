@@ -19,8 +19,10 @@ export default function Registration():JSX.Element {
   const registr = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     try {
-      await dispatch(registrationUser({ name, phone, password, cpassword }));
-      if (user) {
+      const res = await dispatch(registrationUser({ name, phone, password, cpassword }));
+      console.log(user);
+      console.log(res);
+      if (res.payload !== undefined) {
         navigate('/');
       }
     } catch (errorr) {
