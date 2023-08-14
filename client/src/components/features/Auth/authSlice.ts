@@ -16,6 +16,9 @@ export const registrationUser = createAsyncThunk('auth/registration', (value: Us
 export const authorizationUser = createAsyncThunk('auth/authorization', (value: UserAuthLog) =>
   api.authorizationFetch(value)
 );
+export const authCheckUser = createAsyncThunk('auth/checkUser', () => api.verificationFetch());
+
+export const logOut = createAsyncThunk('auth/logout', () => api.logOutFetch());
 
 // наш СЛАЙС
 const registrationUserSlice = createSlice({
@@ -36,6 +39,18 @@ const registrationUserSlice = createSlice({
       state.user = action.payload;
     })
     .addCase(authorizationUser.rejected, (state, action) => {
+      state.error = action.error.message;
+    })
+    .addCase(authCheckUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+    })
+    .addCase(authCheckUser.rejected, (state, action) => {
+      state.error = action.error.message;
+    })
+    .addCase(logOut.fulfilled, (state) => {
+      state.user = null;
+    })
+    .addCase(logOut.rejected, (state, action) => {
       state.error = action.error.message;
     });
   }
