@@ -7,9 +7,29 @@ router.get('/', async (req, res) => {
     const products = await Product.findAll({
       include: [{ model: Category }, { model: Photo }],
     });
-    res.json(products);
+    const categories = await Category.findAll();
+    res.json({ products, categories });
   } catch (error) {
     res.json({ message: error.message });
+  }
+});
+
+router.post('/', async (req, res) => {
+  try {
+    const { name, cost, categoryId, description } = req.body;
+    let newProduct = await Product.create({
+      title: name,
+      cost,
+      category_id: categoryId,
+      description,
+    });
+    newProduct = await Product.findOne({
+      where: { id: newProduct.id },
+      include: [{ model: Category }, { model: Photo }],
+    });
+    res.json(newProduct);
+  } catch ({ message }) {
+    res.json({ message });
   }
 });
 

@@ -14,7 +14,7 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
     <div>
       <div>{product.title}</div>
       <div>
-        <img src={product.Photos[0].url} alt="" />
+        <img src={product.Photos[0]?.url} alt="" />
       </div>
       <div>{product.cost}</div>
       <div>{product.Category.title}</div>

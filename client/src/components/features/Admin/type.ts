@@ -21,10 +21,23 @@ export type Category = {
 
 export type State = {
   products: Product[];
+  categories: Category[];
   error: string | undefined;
 };
 
 export type DelCard = {
   id: string;
   message: string;
+};
+
+export type InitCategory = {
+  categories: Category[];
+  products: Product[];
+};
+
+export type AddProduct = {
+  name: string;
+  cost: number;
+  categoryId: number;
+  description: string;
 };
