@@ -2,11 +2,19 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { State } from './type';
 import * as api from './api';
 
-export const initialState: State = { products: [], error: '' };
+export const initialState: State = {
+  products: [],
+  product: undefined,
+  error: '',
+};
 export const productsInit = createAsyncThunk('products/init', (title: string) =>
   api.initProductsFetch(title)
 );
-
+export const oneProductInit = createAsyncThunk(
+  'oneProduct/init',
+  ({ title, idProd }: { title: string; idProd: string }) =>
+    api.initOneProductFetch({ title, idProd })
+);
 const productsSlice = createSlice({
   name: 'products',
   initialState,
@@ -17,6 +25,12 @@ const productsSlice = createSlice({
         state.products = action.payload;
       })
       .addCase(productsInit.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(oneProductInit.fulfilled, (state, action) => {
+        state.product = action.payload;
+      })
+      .addCase(oneProductInit.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },

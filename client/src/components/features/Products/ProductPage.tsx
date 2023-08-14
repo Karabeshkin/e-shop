@@ -1,24 +1,27 @@
-import React from 'react';
-import { Product } from './type';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
 import { RootState, useAppDispatch } from '../store/store';
-import { useSelector } from 'react-redux';
+import { oneProductInit } from './productsSlice';
 
 function ProductPage(): JSX.Element {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { idProd } = useParams();
-  const products = useSelector((store: RootState) => store.products.products);
-  let product;
-  if (idProd) {
-    product = products.find((prod) => prod.id === +idProd);
-  }
+  const { title, idProd } = useParams();
+  const oneProduct = useSelector((store: RootState) => store.products.product);
+
+  useEffect(() => {
+    if (idProd && title) {
+      dispatch(oneProductInit({ title, idProd }));
+    }
+  }, [dispatch]);
 
   return (
     <div>
-      <img src={product?.Photos[0].url} alt="product" />
-      <div>{product?.title}</div>
-      <div>{product?.cost}</div>
-      <div>{product?.description}</div>
+      <img src={oneProduct?.Photos[0].url} alt="product" />
+      <div>{oneProduct?.title}</div>
+      <div>{oneProduct?.cost}</div>
+      <div>{oneProduct?.description}</div>
       <button onClick={() => navigate(-1)} type="button">
         Назад
       </button>

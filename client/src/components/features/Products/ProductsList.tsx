@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { productsInit } from './productsSlice';
 import ProductCard from './ProductCard';
 import { RootState, useAppDispatch } from '../store/store';
-import { Link } from 'react-router-dom';
 
 function ProductsList(): JSX.Element {
   const dispatch = useAppDispatch();

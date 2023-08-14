@@ -1,6 +1,5 @@
 import React from 'react';
-import { Category, Product } from './type';
-import { Link } from 'react-router-dom';
+import { Product } from './type';
 
 function ProductCard({ product }: { product: Product }): JSX.Element {
   return (
