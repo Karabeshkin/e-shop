@@ -16,7 +16,9 @@ function AdminAddForm(): JSX.Element {
             placeholder="Укажите цену"
           />
           <select name="category" id="">
-            <option value="">Чай</option>
+            <option value="1">Чай</option>
+            <option value="2">Крупы</option>
+            <option value="3">Макароны</option>
           </select>
           <input
             type="text"

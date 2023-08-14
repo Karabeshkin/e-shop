@@ -3,11 +3,13 @@ import { useDispatch } from 'react-redux';
 import categoriesSlice from '../Category/categorySlice';
 import productsSlice from '../Products/productsSlice';
 import authSlice from '../Auth/authSlice';
+import adminProductInitSlice from '../Admin/adminSlice';
 
 
 const store = configureStore({
   reducer: {
-  categories: categoriesSlice,
+    categories: categoriesSlice,
+    adminProducts: adminProductInitSlice,
     products: productsSlice,
     // auth: authSlice,
   },

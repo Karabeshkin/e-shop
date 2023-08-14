@@ -3,12 +3,13 @@ export type Product = {
   title: string;
   cost: number;
   category_id: number;
-  description: number;
+  description: string;
   Photos: Photo[];
   Category: Category;
 };
 export type State = {
   products: Product[];
+  product: Product | undefined;
   error: string | undefined;
 };
 
