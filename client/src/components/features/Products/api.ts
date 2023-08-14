@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { Product } from './type';
 
 export const initProductsFetch = async (title: string): Promise<Product[]> => {

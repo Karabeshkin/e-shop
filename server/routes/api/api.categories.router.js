@@ -1,11 +1,10 @@
 const router = require('express').Router();
 const { Product, Photo, Category } = require('../../db/models');
 
-
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.findAll();
-     res.json(categories);
+    res.json(categories);
   } catch (error) {
     res.json({ message: error.message });
   }

@@ -4,9 +4,7 @@ const { User } = require('../../db/models');
 
 router.post('/registration', async (req, res) => {
   try {
-    const {
-      name, phone, password, cpassword,
-    } = req.body;
+    const { name, phone, password, cpassword } = req.body;
     let user = await User.findOne({ where: { phone } });
     if (!name || !phone || !password || !cpassword) {
       res.status(400).json({ message: 'Заполните все поля' });
@@ -63,7 +61,6 @@ router.get('/verification', async (req, res) => {
       const user = await User.findOne({
         where: { id: userId },
         attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
-
       });
       res.status(201).json(user);
     } else {
