@@ -26,3 +26,7 @@ export type AuthState = {
   user: User | null;
   error: string | undefined;
 };
+
+export type Message = {
+  message: string;
+}
