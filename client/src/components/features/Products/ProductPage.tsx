@@ -13,6 +13,7 @@ function ProductPage(): JSX.Element {
   useEffect(() => {
     if (idProd && title) {
       dispatch(oneProductInit({ title, idProd }));
+      return () => {};
     }
   }, [dispatch]);
 
