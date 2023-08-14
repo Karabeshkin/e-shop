@@ -5,8 +5,8 @@ import authSlice from '../Auth/authSlice';
 
 const store = configureStore({
   reducer: {
-  auth: authSlice,
-  categories: categoriesSlice,
+    auth: authSlice,
+    categories: categoriesSlice,
  },
 });
 

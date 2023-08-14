@@ -6,7 +6,7 @@ import ProductCard from './ProductCard';
 
 function ProductsList(): JSX.Element {
   const dispatch = useAppDispatch();
-  const products = useSelector((store: RootState) => store.products.products);
+  const products = useSelector((store: RootState) => store.categories.);
   useEffect(() => {
     dispatch(productsInit());
   }, [dispatch]);
