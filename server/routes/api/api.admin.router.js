@@ -33,6 +33,25 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/', async (req, res) => {
+  try {
+    const { id, name, cost, categoryId, description } = req.body;
+
+    if ((id, name, cost, categoryId, description)) {
+      const result = await Product.findOne({ where: { id } });
+      result.title = name;
+      result.cost = cost;
+      result.category_id = categoryId;
+      result.description = description;
+
+      await result.save();
+      res.json(result);
+    }
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
+
 router.delete('/:productId', async (req, res) => {
   try {
     const { productId } = req.params;

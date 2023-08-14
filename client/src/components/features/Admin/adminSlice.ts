@@ -14,6 +14,10 @@ export const addProduct = createAsyncThunk(
   'admin/product/add',
   (obj: AddProduct) => api.addAdminProductFetch(obj)
 );
+export const updProduct = createAsyncThunk(
+  'admin/product/upd',
+  (obj: AddProduct) => api.updAdminProductFetch(obj)
+);
 
 const adminProductInitSlice = createSlice({
   name: 'adminProducts',
@@ -41,6 +45,14 @@ const adminProductInitSlice = createSlice({
         state.products.push(action.payload);
       })
       .addCase(addProduct.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(updProduct.fulfilled, (state, action) => {
+        state.products = state.products.map((product) =>
+          product.id === action.payload.id ? action.payload : product
+        );
+      })
+      .addCase(updProduct.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },
