@@ -8,7 +8,6 @@ const apiAuthRouter = require('./api/api.auth.routes');
 router.use('/api/auth', apiAuthRouter);
 router.use('/api/categories', apiProductsRouter);
 router.use('/admin/api/products', apiAdminProductsRouter);
-router.use('api/cart', apiCartRouter);
-
+router.use('/api/cart', apiCartRouter);
 
 module.exports = router;
