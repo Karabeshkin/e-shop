@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
 import { categoriesInit } from './categorySlice';
 import CategoryCard from './CategoryCard';
+import './Category.css';
 
 function CategoryList(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -13,7 +14,7 @@ function CategoryList(): JSX.Element {
     dispatch(categoriesInit());
   }, [dispatch]);
   return (
-    <div>
+    <div className="category">
       {categories.map((category) => (
         <CategoryCard category={category} key={category.id} />
       ))}
