@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { State } from './type';
 import * as api from './api';
+import './Category.css';
 
 export const initialState: State = { categories: [], error: '' };
 export const categoriesInit = createAsyncThunk('category/init', () =>
