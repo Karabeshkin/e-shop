@@ -14,14 +14,12 @@ export default function Registration():JSX.Element {
   const navigate = useNavigate();
 
   const error = useSelector((store:RootState) => store.auth.error);
-  const user = useSelector((store:RootState) => store.auth.user);
+  // const user = useSelector((store:RootState) => store.auth.user);
 
   const registr = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     try {
       const res = await dispatch(registrationUser({ name, phone, password, cpassword }));
-      console.log(user);
-      console.log(res);
       if (res.payload !== undefined) {
         navigate('/');
       }

@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
-import * as api from './api';
+import { useNavigate } from 'react-router';
+// import * as api from './api';
 import { useAppDispatch } from '../store/store';
-
+import { authorizationUser } from './authSlice';
 
 export default function Authorization(): JSX.Element {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const authorization = (e: React.FormEvent<HTMLFormElement>): void => {
+  const authorization = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-
-    api
-      .authorizationFetch({ phone, password })
-      .then((data) => dispatch({ type: 'auth/authorization', payload: data }));
+    try {
+      const res = await dispatch(authorizationUser({ phone, password }));
+      if (res.payload !== undefined) {
+        navigate('/');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

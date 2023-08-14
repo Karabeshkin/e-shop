@@ -26,7 +26,10 @@ export const authorizationFetch = async (obj:Authorization):Promise<User> => {
     body: JSON.stringify(obj)
   });
   const data = await res.json();
+  console.log(data, '999999999999999');
+  
   return data;
+  
 };
 
 // export const verificationFetch = async ():Promise<User> => {
@@ -40,5 +43,10 @@ export const verificationFetch = async (): Promise<User> => {
 };
 
 export const logOutFetch = async (): Promise<void> => {
-  await fetch('/api/auth/logout');
+  const res = await fetch('/api/auth/logout', { credentials: 'include' });
+  if (!res.ok) {
+    const { message } = await res.json();
+    throw message;
+  }
+  return res.json();
 };

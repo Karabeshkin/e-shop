@@ -1,10 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
+import { RootState, useAppDispatch } from '../store/store';
+import { logOut } from '../Auth/authSlice';
 
 function Navbar(): JSX.Element {
   const user = useSelector((store:RootState) => store.auth.user);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const logOutFetch = async (): Promise<void> => {
+    const res = await dispatch(logOut());
+    if (res.meta.requestStatus === 'fulfilled') {
+      navigate('/');
+    }
+  };
+
   return (
 
     <nav className="navbar brown lighten-2">
@@ -24,7 +35,7 @@ function Navbar(): JSX.Element {
             </>
           )}
           <li>
-            <Link to="/logout">LogOut</Link>
+            <button className="" type="button" onClick={logOutFetch}>LogOut</button>
           </li>
         </ul>
       </div>
