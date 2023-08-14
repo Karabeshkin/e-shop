@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { clearState, productsInit } from './productsSlice';
 import ProductCard from './ProductCard';
 import { RootState, useAppDispatch } from '../store/store';
+import './Product.css';
 
 function ProductsList(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -21,7 +22,7 @@ function ProductsList(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="product">
       {products.map((product) => (
         <Link to={`/categories/${title}/${product.id}`}>
           <ProductCard product={product} key={product.id} />

@@ -1,0 +1,24 @@
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10%;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 120%;
+}
+
+.foto img {
+  width: 300px;
+  height: 300px;
+  border-radius: 5%;
+}
+
+.foto {
+  border-radius: 5%;
+  width: 300px;
+  height: 300px;
+  -webkit-box-shadow: -36px 25px 18px 8px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -36px 25px 18px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: -36px 25px 18px 8px rgba(0, 0, 0, 0.2);
+}
