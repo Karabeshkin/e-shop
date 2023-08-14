@@ -1,0 +1,34 @@
+.main_page_div img {
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(5px);
+  opacity: 0.8;
+}
+
+.MainWelcome img {
+  bottom: 750px;
+  position: relative;
+  height: 200px;
+  width: 1000px;
+  left: 230px;
+  border-radius: 8%;
+}
+
+.MainWelcome {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.H1 {
+  left: 450px;
+  font-size: 60px;
+  background-color: #f6e0c7a6;
+  border-radius: 15%;
+  position: relative;
+  width: 600px;
+  bottom: 895px;
+}
