@@ -3,7 +3,7 @@ export type Product = {
   title: string;
   cost: number;
   category_id: number;
-  description: number;
+  description: string;
   Photos: Photo[];
   Category: Category;
 };
@@ -36,6 +36,7 @@ export type InitCategory = {
 };
 
 export type AddProduct = {
+  id?: number;
   name: string;
   cost: number;
   categoryId: number;
