@@ -11,7 +11,7 @@ const store = configureStore({
     categories: categoriesSlice,
     adminProducts: adminProductInitSlice,
     products: productsSlice,
-    // auth: authSlice,
+    auth: authSlice,
   },
 });
 

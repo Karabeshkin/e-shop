@@ -13,8 +13,8 @@ export default function Registration():JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { error } = useSelector((store:RootState) => store.auth);
-  const { user } = useSelector((store:RootState) => store.auth);
+  const error = useSelector((store:RootState) => store.auth.error);
+  const user = useSelector((store:RootState) => store.auth.user);
 
   const registr = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
