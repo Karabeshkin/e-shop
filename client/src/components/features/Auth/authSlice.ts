@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Registration, AuthState } from './type';
+import { AuthState } from './type';
 import * as api from './api';
+import { UserAuthLog, UserAuthReg } from '../Users/types/user';
 
 // наш ИНИШЛ СТЭЙТ
 const initialState: AuthState = {
@@ -9,12 +10,12 @@ const initialState: AuthState = {
 };
 
 // наша САНОЧКА
-export const registrationUser = createAsyncThunk(
-  'authUser/registration', (obj: Registration) => api.registrationFetch(obj)
+export const registrationUser = createAsyncThunk('auth/registration', (value: UserAuthReg) =>
+  api.registrationFetch(value)
 );
-// const authorizationUser = createAsyncThunk(
-//   'authUser/authorization', (obj: Authorization) => api.authorizationFetch(obj)
-// );
+export const authorizationUser = createAsyncThunk('auth/authorization', (value: UserAuthLog) =>
+  api.authorizationFetch(value)
+);
 
 // наш СЛАЙС
 const registrationUserSlice = createSlice({
@@ -30,6 +31,12 @@ const registrationUserSlice = createSlice({
     .addCase(registrationUser.rejected, (state, action) => {
       state.error = action.error.message;
       state.user = null;
+    })
+    .addCase(authorizationUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+    })
+    .addCase(authorizationUser.rejected, (state, action) => {
+      state.error = action.error.message;
     });
   }
 });

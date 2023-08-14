@@ -34,3 +34,7 @@ export const verificationFetch = async ():Promise<User> => {
     const data = await res.json();
     return data;
 };
+
+export const logOutFetch = async (): Promise<void> => {
+  await fetch('/api/auth/logout');
+};

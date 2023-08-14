@@ -25,7 +25,7 @@ router.post('/registration', async (req, res) => {
     user = await User.create({ name, phone, password: hash });
     req.session.userId = user.id;
 
-    res.json({ message: 'ok' });
+    res.json(user);
   } catch ({ message }) {
     res.json({ message });
   }
@@ -36,16 +36,16 @@ router.post('/authorization', async (req, res) => {
     const { phone, password } = req.body;
     const user = await User.findOne({ where: { phone } });
     if (!phone || !password) {
-      res.json({ message: 'Заполните все поля' });
+      res.status(400).json({ message: 'Заполните все поля' });
       return;
     }
     if (!user) {
-      res.json({ message: 'Такого юзера не существует' });
+      res.status(400).json({ message: 'Такого юзера не существует' });
       return;
     }
     const compare = await bcrypt.compare(password, user.password);
     if (!compare) {
-      res.json({ message: 'пароль неверный' });
+      res.status(400).json({ message: 'пароль неверный' });
       return;
     }
 
