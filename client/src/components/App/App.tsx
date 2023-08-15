@@ -6,7 +6,6 @@ import MainPage from '../features/MainPage/MainPage';
 import Registration from '../features/Auth/Registration';
 import Authorization from '../features/Auth/Authorization';
 import CategoryPage from '../features/Category/CategoryPage';
-import CategoryList from '../features/Category/CategoryList';
 import AdminProductsList from '../features/Admin/AdminProductsList';
 import ProductPage from '../features/Products/ProductPage';
 import ProductsList from '../features/Products/ProductsList';
@@ -17,11 +16,11 @@ function App(): JSX.Element {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      <MainPage />
+      
       <Routes>
         <Route path="/registration" element={<Registration />} />
         <Route path="/authorization" element={<Authorization />} />
-        <Route path="/" element={<CategoryList />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/:title" element={<ProductsList />} />
         <Route path="/admin" element={<AdminProductsList />} />
         <Route path="/categories/:title" element={<CategoryPage />} />
