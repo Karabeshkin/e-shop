@@ -21,3 +21,11 @@ export type Category = {
   title: string;
   image: string;
 };
+export type ProductInc = {
+  id: number;
+  title: string;
+  cost: number;
+  category_id: number;
+  description: number;
+  Photos: Photo[];
+};

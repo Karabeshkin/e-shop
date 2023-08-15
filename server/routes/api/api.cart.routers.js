@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const router = require('express').Router();
 const { Order, OrderItem, Product, Photo } = require('../../db/models');
 
@@ -34,15 +35,11 @@ router.get('/', async (req, res) => {
     const order = await Order.findOne({
       where: { user_id: req.session.userId, isFinished: false },
     });
-    if (order) {
-      const orderitems = await OrderItem.findAll({
-        where: { order_id: order.id },
-        include: { model: Product, include: { model: Photo } },
-      });
-      res.json(orderitems);
-    } else {
-      res.json({ message: 'корзина пуста' });
-    }
+    const orderitems = await OrderItem.findAll({
+      where: { order_id: order.id },
+      include: { model: Product, include: { model: Photo } },
+    });
+    res.json(orderitems);
   } catch (error) {
     res.json({ message: error.message });
   }
