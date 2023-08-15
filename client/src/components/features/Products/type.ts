@@ -11,6 +11,7 @@ export type State = {
   products: Product[];
   product: Product | undefined;
   error: string | undefined;
+  searchedJobs: []
 };
 
 export type Photo = {
