@@ -43,6 +43,6 @@ export const updAdminProductFetch = async (
     },
     body: JSON.stringify(obj),
   });
-  const data = res.json();
+  const data = await res.json();
   return data;
 };

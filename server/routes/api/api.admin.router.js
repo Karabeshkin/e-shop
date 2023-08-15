@@ -38,7 +38,10 @@ router.put('/', async (req, res) => {
     const { id, name, cost, categoryId, description } = req.body;
 
     if ((id, name, cost, categoryId, description)) {
-      const result = await Product.findOne({ where: { id } });
+      const result = await Product.findOne({
+        where: { id },
+        include: [{ model: Category }, { model: Photo }],
+      });
       result.title = name;
       result.cost = cost;
       result.category_id = categoryId;
