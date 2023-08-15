@@ -37,7 +37,9 @@ function AdminUpdateForm({
 
   return (
     <div>
+
       <form action="submit" onSubmit={updAdminProduct}>
+
         <div>
           <input
             type="text"

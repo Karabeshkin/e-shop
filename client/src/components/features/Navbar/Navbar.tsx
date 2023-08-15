@@ -5,7 +5,7 @@ import { RootState, useAppDispatch } from '../store/store';
 import { logOut } from '../Auth/authSlice';
 
 function Navbar(): JSX.Element {
-  const user = useSelector((store:RootState) => store.auth.user);
+  const user = useSelector((store: RootState) => store.auth.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -17,7 +17,6 @@ function Navbar(): JSX.Element {
   };
 
   return (
-
     <nav className="navbar brown lighten-2">
       <div className="nav-wrapper ">
         <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -34,9 +33,18 @@ function Navbar(): JSX.Element {
               </li>
             </>
           )}
-          <li>
-            <button className="" type="button" onClick={logOutFetch}>LogOut</button>
-          </li>
+          {user && (
+            <>
+              <li>
+                <div>Корзина</div>
+              </li>
+              <li>
+                <div className="" onClick={logOutFetch}>
+                  LogOut
+                </div>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>
