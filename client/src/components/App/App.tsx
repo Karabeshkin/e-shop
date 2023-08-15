@@ -10,6 +10,8 @@ import CategoryList from '../features/Category/CategoryList';
 import AdminProductsList from '../features/Admin/AdminProductsList';
 import ProductPage from '../features/Products/ProductPage';
 import ProductsList from '../features/Products/ProductsList';
+import CartList from '../features/Cart/CartList';
+
 
 function App(): JSX.Element {
   return (
@@ -24,6 +26,7 @@ function App(): JSX.Element {
         <Route path="/admin" element={<AdminProductsList />} />
         <Route path="/categories/:title" element={<CategoryPage />} />
         <Route path="/categories/:title/:idProd" element={<ProductPage />} />
+        <Route path="/cart" element={<CartList />} />
       </Routes>
     </div>
   );
