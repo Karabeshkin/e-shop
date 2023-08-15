@@ -1,0 +1,7 @@
+.Sale {
+  display: flex;
+  background-color: white;
+  width: 20%;
+  border-radius: 10px;
+  margin: 1%;
+}
