@@ -4,9 +4,13 @@ import { Product } from './type';
 import { RootState, useAppDispatch } from '../store/store';
 import { updProduct } from './adminSlice';
 
-function AdminUpdateForm({ product }: { product: Product }): JSX.Element {
-  console.log(product);
-
+function AdminUpdateForm({
+  product,
+  close,
+}: {
+  product: Product;
+  close: () => void;
+}): JSX.Element {
   const dispatch = useAppDispatch();
   const categories = useSelector(
     (store: RootState) => store.adminProducts.categories
@@ -16,6 +20,7 @@ function AdminUpdateForm({ product }: { product: Product }): JSX.Element {
   const [cost, setCost] = useState(product.cost);
   const [categoryId, setCategoryId] = useState(product.category_id);
   const [description, setDescription] = useState(product.description);
+
   const updAdminProduct = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(
@@ -27,14 +32,14 @@ function AdminUpdateForm({ product }: { product: Product }): JSX.Element {
         description,
       })
     );
+    close();
   };
 
   return (
     <div>
-      <form
-        action="submit"
-        onSubmit={updAdminProduct}
-      >
+
+      <form action="submit" onSubmit={updAdminProduct}>
+
         <div>
           <input
             type="text"
@@ -55,7 +60,9 @@ function AdminUpdateForm({ product }: { product: Product }): JSX.Element {
             onChange={(e) => setCategoryId(Number(e.target.value))}
           >
             {categories.map((category) => (
-              <option value={category.id}>{category.title}</option>
+              <option value={category.id} key={category.id}>
+                {category.title}
+              </option>
             ))}
           </select>
           <input
@@ -69,6 +76,11 @@ function AdminUpdateForm({ product }: { product: Product }): JSX.Element {
         <button type="submit" className="btn_addItem">
           Добавить изменения
         </button>
+        <div>
+          <button type="button" onClick={close}>
+            x
+          </button>
+        </div>
       </form>
     </div>
   );

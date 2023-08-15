@@ -24,11 +24,20 @@ function AdminAddForm(): JSX.Element {
         description,
       })
     );
+
+    setName('');
+    setCost('');
+    setCategoryId(1);
+    setDescription('');
   };
 
   return (
     <div>
-      <form action="submit" onSubmit={addAdminProduct}>
+      <form
+        action="submit"
+        onSubmit={addAdminProduct}
+        style={{ width: '1200px', marginLeft: '200px' }}
+      >
         <div>
           <input
             type="text"
@@ -49,7 +58,9 @@ function AdminAddForm(): JSX.Element {
             onChange={(e) => setCategoryId(Number(e.target.value))}
           >
             {categories.map((category) => (
-              <option value={category.id}>{category.title}</option>
+              <option value={category.id} key={category.id}>
+                {category.title}
+              </option>
             ))}
           </select>
           <input
