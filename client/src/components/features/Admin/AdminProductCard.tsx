@@ -7,6 +7,9 @@ import AdminUpdateForm from './AdminUpdateForm';
 function AdminProductCard({ product }: { product: Product }): JSX.Element {
   const dispatch = useAppDispatch();
   const [update, setUpdate] = useState(true);
+  const close = (): void => {
+    setUpdate(true);
+  };
 
   const delCard = (): void => {
     dispatch(delProduct({ product }));
@@ -32,7 +35,7 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
           </div>
         </>
       ) : (
-        <AdminUpdateForm product={product} />
+        <AdminUpdateForm product={product} close={close} />
       )}
     </div>
   );
