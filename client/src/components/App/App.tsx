@@ -16,7 +16,6 @@ function App(): JSX.Element {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      
       <Routes>
         <Route path="/registration" element={<Registration />} />
         <Route path="/authorization" element={<Authorization />} />
