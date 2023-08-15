@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { OrderItemInc } from './type';
 
-function Cart(): JSX.Element {
+function Cart({ item }: { item: OrderItemInc }): JSX.Element {
+  console.log(item, '=======');
   return (
     <div>
-      <img src={product.Photos[0].url} alt="product" />
-      <div>{product.title}</div>
-      <div>{product.cost}</div>
+      <img src={item.Product.Photos[0].url} alt="product" />
+      <div>{item.Product.title}</div>
+      <div>{item.Product.cost}</div>
     </div>
   );
 }

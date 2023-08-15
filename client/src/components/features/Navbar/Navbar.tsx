@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
 import { logOut } from '../Auth/authSlice';
+import CartList from '../Cart/CartList';
 
 function Navbar(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -36,12 +37,12 @@ function Navbar(): JSX.Element {
           {user && (
             <>
               <li>
-                <div>Корзина</div>
+                <Link to="/cart">Корзина</Link>
               </li>
               <li>
-                <div className="" onClick={logOutFetch}>
+                <Link to="/" className="" onClick={logOutFetch}>
                   LogOut
-                </div>
+                </Link>
               </li>
             </>
           )}
