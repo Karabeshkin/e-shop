@@ -4,6 +4,10 @@
   "private": true,
   "proxy": "http://localhost:4000/",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.5",
+    "@mui/styled-engine": "^5.13.2",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -13,6 +17,7 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "cross-env": "^7.0.3",
+    "eslint-config-prettier": "^9.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -36,9 +41,11 @@
       "react-app",
       "react-app/jest",
       "airbnb",
-      "airbnb-typescript"
+      "airbnb-typescript",
+      "prettier"
     ],
     "rules": {
+      "linebreak-style": 0,
       "jsx-a11y/interactive-supports-focus": 0,
       "jsx-a11y/control-has-associated-label": 0,
       "react/jsx-indent": 0,
