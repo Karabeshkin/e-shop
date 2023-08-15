@@ -12,6 +12,7 @@ import ProductPage from '../features/Products/ProductPage';
 import ProductsList from '../features/Products/ProductsList';
 import CartList from '../features/Cart/CartList';
 
+
 function App(): JSX.Element {
   return (
     <div className="App">
