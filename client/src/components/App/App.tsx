@@ -6,7 +6,6 @@ import MainPage from '../features/MainPage/MainPage';
 import Registration from '../features/Auth/Registration';
 import Authorization from '../features/Auth/Authorization';
 import CategoryPage from '../features/Category/CategoryPage';
-// import CategoryList from '../features/Category/CategoryList';
 import AdminProductsList from '../features/Admin/AdminProductsList';
 import ProductPage from '../features/Products/ProductPage';
 import ProductsList from '../features/Products/ProductsList';

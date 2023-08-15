@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import { DelCard } from '../Admin/type';
 import { Message, OrderItemInc } from './type';
 
 export const addCartFetch = async (prodId: number): Promise<Message> => {
@@ -18,6 +19,25 @@ export const addCartFetch = async (prodId: number): Promise<Message> => {
 export const initCartFetch = async (): Promise<OrderItemInc[]> => {
   const res = await fetch('/api/cart');
   const data = await res.json();
-  console.log(data, 'data');
+  if (!res.ok) {
+    const { message } = await res.json();
+    throw message;
+  }
+  return data;
+};
+
+export const delOrderItemFetch = async ({
+  item,
+}: {
+  item: OrderItemInc;
+}): Promise<DelCard> => {
+  const res = await fetch(`/api/cart/${item.id}`, {
+    method: 'delete',
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    const { message } = await res.json();
+    throw message;
+  }
   return data;
 };
