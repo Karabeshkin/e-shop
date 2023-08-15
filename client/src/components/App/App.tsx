@@ -11,7 +11,6 @@ import AdminProductsList from '../features/Admin/AdminProductsList';
 import ProductPage from '../features/Products/ProductPage';
 import ProductsList from '../features/Products/ProductsList';
 
-
 function App(): JSX.Element {
   return (
     <div className="App">

@@ -1,0 +1,9 @@
+.SectionShop {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 1%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
