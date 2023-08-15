@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Order, OrderItem } = require('../../db/models');
+const { Order, OrderItem, Product, Photo } = require('../../db/models');
 
 router.post('/', async (req, res) => {
   try {
@@ -17,12 +17,33 @@ router.post('/', async (req, res) => {
         await OrderItem.create({ product_id, order_id: cart.id });
       }
     } else {
-      cart = await Order.create({ user_id: req.session.userId, isFinished: false });
+      cart = await Order.create({
+        user_id: req.session.userId,
+        isFinished: false,
+      });
       await OrderItem.create({ product_id, order_id: cart.id });
     }
     res.json({ message: 'ok' });
   } catch (error) {
-    console.log(error.message, '------------------');
+    res.json({ message: error.message });
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const order = await Order.findOne({
+      where: { user_id: req.session.userId, isFinished: false },
+    });
+    if (order) {
+      const orderitems = await OrderItem.findAll({
+        where: { order_id: order.id },
+        include: { model: Product, include: { model: Photo } },
+      });
+      res.json(orderitems);
+    } else {
+      res.json({ message: 'корзина пуста' });
+    }
+  } catch (error) {
     res.json({ message: error.message });
   }
 });

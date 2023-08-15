@@ -30,8 +30,11 @@ function AdminUpdateForm({ product }: { product: Product }): JSX.Element {
   };
 
   return (
-    <div style={{ width: '200px' }}>
-      <form action="submit" onSubmit={updAdminProduct}>
+    <div>
+      <form
+        action="submit"
+        onSubmit={updAdminProduct}
+      >
         <div>
           <input
             type="text"

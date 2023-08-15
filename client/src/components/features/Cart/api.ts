@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { Message } from './type';
+import { Message, OrderItem } from './type';
 
 export const addCartFetch = async (prodId: number): Promise<Message> => {
   const res = await fetch('/api/cart', {
@@ -11,6 +11,12 @@ export const addCartFetch = async (prodId: number): Promise<Message> => {
       product_id: prodId,
     }),
   });
+  const data = await res.json();
+  return data;
+};
+
+export const initCartFetch = async (): Promise<OrderItem[]> => {
+  const res = await fetch('/api/cart');
   const data = await res.json();
   return data;
 };
