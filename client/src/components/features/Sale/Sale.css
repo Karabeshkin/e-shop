@@ -5,3 +5,10 @@
   border-radius: 10px;
   margin: 1%;
 }
+
+.Sale img {
+  border-style: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
