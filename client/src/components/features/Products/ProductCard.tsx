@@ -24,15 +24,20 @@ function ProductCard({
   };
 
   return (
-    <>
-    
 
+    <div>
+      {title && (
+        <>
+          <div>{product.title}</div>
+          <div>{product.cost}</div>
+        </>
+      )}
       <div className="productCard">
-        <div className="button">
-          <button type="button" onClick={() => addFavorites()}>
-            Добавить в избранное
-          </button>
-        </div>
+        <button type="button" onClick={addFavorites}>
+          Добавить в избранное
+        </button>
+     </div>
+
         <div className="foto">
           {title ? (
             <Link to={`/categories/${title}/${product.id}`}>
@@ -42,15 +47,6 @@ function ProductCard({
             <img src={product.Photos[0].url} alt="product" />
           )}
         </div>
-        <div>
-        {title && (
-          <>
-            <div>{product.title}</div>
-            <div>{product.cost}</div>
-          </>
-        )}
-      </div>
-
         <div className="price">
           <div>{product.title}</div>
           <div>{product.cost}</div>
@@ -59,7 +55,7 @@ function ProductCard({
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

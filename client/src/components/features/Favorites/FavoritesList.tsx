@@ -1,20 +1,13 @@
-
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../store/store';
-import { initFavorite } from './favoritesSlice';
+import { RootState } from '../store/store';
 import ProductCard from '../Products/ProductCard';
 
 function FavoritesList(): JSX.Element {
-  const dispatch = useAppDispatch();
   const favoritesList = useSelector(
     (store: RootState) => store.favorites.favorites
   );
-  console.log(favoritesList);
 
-  useEffect(() => {
-    dispatch(initFavorite());
-  }, [dispatch]);
   return (
     <div>
       {favoritesList.map((favorite) => (
