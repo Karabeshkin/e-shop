@@ -31,26 +31,16 @@ function ProductCard({
 
   const addFavorites = (): void => {
     dispatch(addFavorite(product.id));
-
+  };
 
   const addCart = (): void => {
     dispatch(addCartThunk(product.id));
   };
 
-  const addToFavorites = (): void => {
-
-    dispatch();
-
-
-  };
-
   return (
     <>
-
       <div>
-
         <button type="button" onClick={addFavorites}>
-
           Добавить в избранное
         </button>
       </div>
@@ -69,26 +59,26 @@ function ProductCard({
         {/* <button type="button" onClick={addCart}>
           <img src="/cart.png" alt="cart" />
         </button> */}
-
-<!--       <div className='productCard'>
-        <button type="button" onClick={() => addToFavorites(product.id)}>
-          Добавить в избранное
-        </button>
-
-        <div className="foto">
-          <Link to={`/categories/${title}/${product.id}`}>
-            <img src={product.Photos[0].url} alt="product" />
-          </Link>
-        </div>
-        <div className='price'>
-          <div>{product.title}</div>
-          <div>{product.cost}</div>
-          <button className='buttonDob' type="button" onClick={addCart}>
-            <img src="/cart.png" alt="cart" />
-          </button>
-        </div> -->
-
       </div>
+        <div className='productCard'>
+          <button type="button" onClick={() => addFavorites()}>
+            Добавить в избранное
+          </button>
+
+          <div className="foto">
+            <Link to={`/categories/${title}/${product.id}`}>
+              <img src={product.Photos[0].url} alt="product" />
+            </Link>
+          </div>
+
+          <div className='price'>
+            <div>{product.title}</div>
+            <div>{product.cost}</div>
+            <button className='buttonDob' type="button" onClick={addCart}>
+              <img src="/cart.png" alt="cart" />
+            </button>
+          </div> 
+        </div>
     </>
   );
 }
