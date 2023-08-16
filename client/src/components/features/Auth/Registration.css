@@ -11,18 +11,20 @@
 }
 
 .registr {
-  width: 40%;
-  background-color: white;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-content: center;
-  border-radius: 5%;
+  align-items: center;
+  margin: 1%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 60%;
+  height: 100%;
+  flex-direction: column;
 }
 
 form {
-
   display: flex;
   flex-direction: column;
   flex-wrap: inherit;
@@ -33,7 +35,5 @@ form {
   border-radius: 5%;
 }
 
-
-button{
-  
+button {
 }
