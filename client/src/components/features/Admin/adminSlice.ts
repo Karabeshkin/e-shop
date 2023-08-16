@@ -3,6 +3,7 @@ import { AddProduct, Product, State } from './type';
 import * as api from './api';
 
 export const initialState: State = { products: [], categories: [], error: '' };
+
 export const initProduct = createAsyncThunk('admin/product/init', () =>
   api.initAdminProductFetch()
 );
