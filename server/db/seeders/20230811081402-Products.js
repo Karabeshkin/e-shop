@@ -33,11 +33,12 @@ module.exports = {
         category_id: 2,
       },
       {
-        title: 'Рис',
-        cost: 100,
-        description: 'по стандарту',
+        title: 'Булгур',
+        cost: 400,
+        description: 'вкусная каша',
         category_id: 2,
       },
+      
       {
         title: 'Равиоли',
         cost: 5000,

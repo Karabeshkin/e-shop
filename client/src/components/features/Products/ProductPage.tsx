@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
 import { RootState, useAppDispatch } from '../store/store';
 import { oneProductInit } from './productsSlice';
+import './Product.css'
 
 function ProductPage(): JSX.Element {
   const dispatch = useAppDispatch();

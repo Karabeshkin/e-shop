@@ -26,11 +26,11 @@ module.exports = {
         product_id: 3,
       },
       {
-        url: 'https://e0.edimdoma.ru/data/recipes/0005/4527/54527-ed4_wide.jpg?1628827347',
+        url: 'https://www.rusteaco.ru/images/26.11.19/ind2.jpg',
         product_id: 4,
       },
       {
-        url: 'https://www.vsegdavkusno.ru/assets/images/recipes/2278/kuskus-s-ovoshhami.jpg',
+        url: 'https://www.rusteaco.ru/images/26.11.19/ind2.jpg',
         product_id: 4,
       },
       {
