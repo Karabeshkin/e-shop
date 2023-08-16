@@ -64,4 +64,20 @@ router.delete('/:itemId', async (req, res) => {
   }
 });
 
+router.put('/:itemId', async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const { count } = req.body;
+    const item = await OrderItem.findOne({
+      where: { id: itemId },
+      include: { model: Product, include: { model: Photo } },
+    });
+    item.count = count;
+    await item.save();
+    res.json({ id: item.id, count: item.count });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
 module.exports = router;
