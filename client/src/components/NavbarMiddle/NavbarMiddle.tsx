@@ -18,11 +18,11 @@ function NavbarMiddle(): JSX.Element {
   };
 
   return (
-    <nav className="navbar ">
+    <nav className="navbar orange lighten-4">
       <div className="nav">
         <div id="navmobile" className="right hide-on-med-and-down">
-          <div>
-            <Link to="/">Главная</Link>
+          <div  className='link'>
+            <Link  to="/">Главная</Link>
           </div>
           {!user && (
             <>
