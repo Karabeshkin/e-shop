@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { OrderItemInc, State } from './type';
+import { OrderItemInc, State, UpdItem } from './type';
 import * as api from './api';
 
 export const initialState: State = {
@@ -9,9 +9,16 @@ export const initialState: State = {
 export const cartInit = createAsyncThunk('cart/init', () =>
   api.initCartFetch()
 );
+export const addCartThunk = createAsyncThunk('cart/add', (id: number) => {
+  api.addCartFetch(id);
+});
 export const delOrderItem = createAsyncThunk(
   'orderItem/del',
-  ({ item }: { item: OrderItemInc }) => api.delOrderItemFetch({ item })
+  (item: OrderItemInc) => api.delOrderItemFetch(item)
+);
+export const updOrderItem = createAsyncThunk(
+  'orderItem/updplus',
+  (item: UpdItem) => api.updateOrderItemFetch(item)
 );
 
 const cartSlice = createSlice({
@@ -34,6 +41,16 @@ const cartSlice = createSlice({
       .addCase(delOrderItem.rejected, (state, action) => {
         state.error = action.error.message;
       })
+      .addCase(updOrderItem.fulfilled, (state, action) => {
+        state.orderItems = state.orderItems.map((item) =>
+          item.id === action.payload?.id
+            ? { ...item, count: action.payload.count }
+            : item
+        );
+      })
+      .addCase(updOrderItem.rejected, (state, action) => {
+        state.error = action.error.message;
+      });
   },
 });
 

@@ -1,0 +1,39 @@
+.registrMane {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: bisque;
+  flex-direction: row;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.registr {
+  width: 40%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  border-radius: 5%;
+}
+
+form {
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: inherit;
+  width: 80%;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-radius: 5%;
+}
+
+
+button{
+  
+}

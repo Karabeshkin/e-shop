@@ -43,7 +43,7 @@ function NavbarMiddle(): JSX.Element {
           {user && (
             <>
               <div>
-                <div>Корзина</div>
+                <Link to='/cart'>Корзина</Link>
               </div>
               <div>
                 <div className="" onClick={logOutFetch}>

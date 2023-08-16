@@ -1,19 +1,51 @@
 const router = require('express').Router();
-const { Favorite } = require('../../db/models');
 const config = require('../../../client/src/config.json');
+const { Favourite, Product, Photo, Category } = require('../../db/models');
 
-console.log('config', config);
+router.get('/', async (req, res) => {
+  try {
+    const favorites = await Favourite.findAll({
+      include: [{ model: Product, include: { model: Photo } }],
+    });
+    res.json({ favorites });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
 
 router.post('/', async (req, res) => {
   try {
-    const { productId } = req.body;
+    const { id } = req.body;
     const userIdsess = req.session.userId;
-    if (productId && userIdsess) {
-      const favorites = await Favorite.create({
-        userId: userIdsess,
-        product_id: productId,
+    if (id && userIdsess) {
+      let productFav = await Favourite.findOne({
+        where: { product_id: id, user_id: userIdsess },
+        include: [
+          { model: Product, include: [{ model: Photo }, { model: Category }] },
+        ],
       });
-      res.json({ message: 'ok' });
+      if (productFav) {
+        await Favourite.destroy({
+          where: { id: productFav.id },
+        });
+        res.json(productFav);
+      } else {
+        const favorites = await Favourite.create({
+          user_id: userIdsess,
+          product_id: id,
+        });
+        productFav = await Favourite.findOne({
+          where: { id: favorites.id },
+          include: [
+            {
+              model: Product,
+              include: [{ model: Photo }, { model: Category }],
+            },
+          ],
+        });
+        res.json(favorites);
+      }
     }
   } catch (error) {
     res.json({ message: error.message });
@@ -23,7 +55,7 @@ router.post('/', async (req, res) => {
 router.delete('/:idFavorite/delete', async (req, res) => {
   try {
     const { idFavorite } = req.params;
-    const delFavorite = await Favorite.destroy({ where: { id: idFavorite } });
+    const delFavorite = await Favourite.destroy({ where: { id: idFavorite } });
     res.json({ delFavorite });
   } catch (error) {
     res.json({ message: error.message });
