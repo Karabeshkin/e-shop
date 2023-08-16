@@ -34,24 +34,31 @@ const registrationUserSlice = createSlice({
     .addCase(registrationUser.rejected, (state, action) => {
       state.error = action.error.message;
       state.user = null;
+      
     })
     .addCase(authorizationUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.error = '';
     })
     .addCase(authorizationUser.rejected, (state, action) => {
       state.error = action.error.message;
+      
     })
     .addCase(authCheckUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.error = '';
     })
     .addCase(authCheckUser.rejected, (state, action) => {
       state.error = action.error.message;
+      state.error = '';
     })
     .addCase(logOut.fulfilled, (state) => {
       state.user = null;
+      state.error = '';
     })
     .addCase(logOut.rejected, (state, action) => {
       state.error = action.error.message;
+      state.error = '';
     });
   }
 });

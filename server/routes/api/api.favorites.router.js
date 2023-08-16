@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const { Favorite } = require('../../db/models');
+const config = require('../../../client/src/config.json');
+
+console.log('config', config);
 
 router.post('/', async (req, res) => {
   try {

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 // import * as api from './api';
-import { useAppDispatch } from '../store/store';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../store/store';
 import { authorizationUser } from './authSlice';
 
 export default function Authorization(): JSX.Element {
+  const error = useSelector((store:RootState) => store.auth.error);
+  const user = useSelector((store:RootState) => store.auth.user);
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -12,15 +15,14 @@ export default function Authorization(): JSX.Element {
 
   const authorization = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    try {
-      const res = await dispatch(authorizationUser({ phone, password }));
-      if (res.payload !== undefined) {
-        navigate('/');
-      }
-    } catch (error) {
-      console.log(error);
-    }
+      dispatch(authorizationUser({ phone, password }));
   };
+  
+  useEffect(() => {
+    if (user) {
+      navigate('/')
+    }
+  }, [user])
 
   return (
     <div>
@@ -29,6 +31,7 @@ export default function Authorization(): JSX.Element {
         <input name="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">Log In</button>
       </form>
+      <div>{error}</div>
     </div>
   );
 }
