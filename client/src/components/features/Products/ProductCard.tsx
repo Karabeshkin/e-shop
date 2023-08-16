@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Product } from './type';
 import { useAppDispatch } from '../store/store';
 import { addFavorite } from '../Favorites/favoritesSlice';
-import './Product.css';
 import { addCartThunk } from '../Cart/cartSlice';
+import './Product.css';
 
 function ProductCard({
   product,
@@ -24,6 +24,7 @@ function ProductCard({
   };
 
   return (
+
     <div>
       {title && (
         <>
@@ -35,6 +36,8 @@ function ProductCard({
         <button type="button" onClick={addFavorites}>
           Добавить в избранное
         </button>
+     </div>
+
         <div className="foto">
           {title ? (
             <Link to={`/categories/${title}/${product.id}`}>
