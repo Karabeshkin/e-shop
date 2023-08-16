@@ -9,18 +9,18 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
     dispatch(delOrderItem(item));
   };
   const updMinus = (): void => {
-    dispatch(updOrderItem({id:item.id,count:item.count - 1}));
+    dispatch(updOrderItem({ id: item.id, count: item.count - 1 }));
   };
   const updPlus = (): void => {
-    dispatch(updOrderItem({id:item.id,count:item.count + 1}));
+    dispatch(updOrderItem({ id: item.id, count: item.count + 1 }));
   };
   return (
     <div>
       <img src={item.Product.Photos[0].url} alt="product" />
       <div>{item.Product.title}</div>
+      <div>{item.Product.cost}</div>
       <button type="button" onClick={delItem}>
         <img src="./garbage.png" alt="garbage" />
-        <div>{item.Product.cost}</div>
       </button>
       <div>
         <button type="button" onClick={() => updMinus()}>

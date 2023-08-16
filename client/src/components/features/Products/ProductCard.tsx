@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from './type';
-import * as api from '../Cart/api';
 import { useAppDispatch } from '../store/store';
 import { addCartThunk } from '../Cart/cartSlice';
 
