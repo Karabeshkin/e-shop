@@ -12,10 +12,6 @@ export const addFavorite = createAsyncThunk('favorites/add', (id: number) =>
   api.addFavoriteFetch(id)
 );
 
-export const delFavorite = createAsyncThunk('favorites/add', (id: number) =>
-  api.delFavoriteFetch(id)
-);
-
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
@@ -30,7 +26,16 @@ const favoritesSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addFavorite.fulfilled, (state, action) => {
-        state.favorites.push(action.payload);
+        const finded = state.favorites.filter(
+          (el) => el.id === action.payload.id
+        );
+        if (finded.length > 0) {
+          state.favorites.filter(
+            (el) => el.product_id !== action.payload.product_id
+          );
+        } else {
+          state.favorites.push(action.payload);
+        }
       })
       .addCase(addFavorite.rejected, (state, action) => {
         state.error = action.error.message;

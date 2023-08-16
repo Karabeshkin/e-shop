@@ -35,7 +35,7 @@ function NavbarMiddle(): JSX.Element {
               </div>
               {config.favourites && (
                 <div>
-                  <Link to="/authorization">Избранное</Link>
+                  <Link to="/favorites">Избранное</Link>
                 </div>
               )}
             </>

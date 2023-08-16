@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const config = require('../../../client/src/config.json');
 const { Favourite, Product, Photo, Category } = require('../../db/models');
 
 router.get('/', async (req, res) => {
@@ -7,12 +6,12 @@ router.get('/', async (req, res) => {
     const favorites = await Favourite.findAll({
       include: [{ model: Product, include: { model: Photo } }],
     });
-    res.json({ favorites });
+
+    res.json(favorites);
   } catch (error) {
     res.json({ message: error.message });
   }
 });
-
 
 router.post('/', async (req, res) => {
   try {
@@ -25,6 +24,7 @@ router.post('/', async (req, res) => {
           { model: Product, include: [{ model: Photo }, { model: Category }] },
         ],
       });
+
       if (productFav) {
         await Favourite.destroy({
           where: { id: productFav.id },
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
             },
           ],
         });
-        res.json(favorites);
+        res.json(productFav);
       }
     }
   } catch (error) {
