@@ -13,7 +13,6 @@ import FavoritesList from '../features/Favorites/FavoritesList';
 import CartList from '../features/Cart/CartList';
 
 
-
 function App(): JSX.Element {
   return (
     <div className="App">
