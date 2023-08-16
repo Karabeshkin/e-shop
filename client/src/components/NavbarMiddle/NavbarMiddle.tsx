@@ -33,11 +33,7 @@ function NavbarMiddle(): JSX.Element {
               <div>
                 <Link to="/authorization">LogIn</Link>
               </div>
-              {config.favourites && (
-                <div>
-                  <Link to="/favorites">Избранное</Link>
-                </div>
-              )}
+              
             </>
           )}
           {user && (
@@ -45,6 +41,11 @@ function NavbarMiddle(): JSX.Element {
               <div>
                 <Link to="/cart">Корзина</Link>
               </div>
+              {config.favourites && (
+                <div>
+                  <Link to="/favorites">Избранное</Link>
+                </div>
+              )}
               <div>
                 <Link to="/" className="" onClick={logOutFetch}>
                   LogOut

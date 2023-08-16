@@ -55,7 +55,6 @@ function ProductCard({
           </button>
         </div>
       </div>
-    </div>
   );
 }
 
