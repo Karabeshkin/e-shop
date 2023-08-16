@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { OrderItemInc, State, UpdItem } from './type';
+import { DelItem, OrderItemInc, State, UpdItem } from './type';
 import * as api from './api';
 
 export const initialState: State = {

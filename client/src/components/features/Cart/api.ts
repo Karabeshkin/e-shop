@@ -1,5 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-import { DelItem, Message, OrderItemInc, UpdItem } from './type';
+import { async } from 'q';
+import { DelCard } from '../Admin/type';
+import { DelItem, Message, OrderItem, OrderItemInc, UpdItem } from './type';
 
 export const addCartFetch = async (prodId: number): Promise<Message> => {
   const res = await fetch('/api/cart', {
