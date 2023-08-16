@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import { Product } from './type';
+import * as api from '../Cart/api';
 import { useAppDispatch } from '../store/store';
-
 // import { FavoriteProduct } from '../Favorites/type';
 import { addFavorite } from '../Favorites/favoritesSlice';
-
 import './Product.css';
 import { addCartThunk } from '../Cart/cartSlice';
 
@@ -19,6 +18,9 @@ function ProductCard({
   product: Product;
   title: string | undefined;
 }): JSX.Element {
+
+  // const dispatch = useAppDispatch();
+
   // const [favorites, setFavorites] = useState<[]>([]);
   const dispatch = useAppDispatch();
 
@@ -30,12 +32,15 @@ function ProductCard({
   const addFavorites = (): void => {
     dispatch(addFavorite(product.id));
 
+
   const addCart = (): void => {
     dispatch(addCartThunk(product.id));
   };
 
   const addToFavorites = (): void => {
+
     dispatch();
+
 
   };
 
@@ -43,7 +48,9 @@ function ProductCard({
     <>
 
       <div>
+
         <button type="button" onClick={addFavorites}>
+
           Добавить в избранное
         </button>
       </div>

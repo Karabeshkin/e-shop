@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
@@ -15,13 +15,22 @@ export default function Registration(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+
+
+
+ 
+
   const error = useSelector((store: RootState) => store.auth.error);
   // const user = useSelector((store:RootState) => store.auth.user);
+
 
   const registr = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
+
+    dispatch(registrationUser({ name, phone, password, cpassword }));
+
     try {
       const res = await dispatch(
         registrationUser({ name, phone, password, cpassword })
@@ -32,7 +41,16 @@ export default function Registration(): JSX.Element {
     } catch (errorr) {
       console.log(errorr);
     }
+
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate('/')
+    }
+  }, [user])
+
+
 
   return (
     <div className="registrMane">

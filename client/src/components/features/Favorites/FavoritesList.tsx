@@ -1,7 +1,7 @@
+
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
-
 import { initFavorite } from './favoritesSlice';
 import ProductCard from '../Products/ProductCard';
 

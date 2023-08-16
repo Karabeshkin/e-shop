@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../features/store/store';
 import { logOut } from '../features/Auth/authSlice';
 import './NavbarMiddle.css';
+import config from '../../config.json';
 
 function NavbarMiddle(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -21,8 +22,8 @@ function NavbarMiddle(): JSX.Element {
     <nav className="navbar orange lighten-4">
       <div className="nav">
         <div id="navmobile" className="right hide-on-med-and-down">
-          <div  className='link'>
-            <Link  to="/">Главная</Link>
+          <div className="link">
+            <Link to="/">Главная</Link>
           </div>
           {!user && (
             <>
@@ -32,6 +33,11 @@ function NavbarMiddle(): JSX.Element {
               <div>
                 <Link to="/authorization">LogIn</Link>
               </div>
+              {config.favourites && (
+                <div>
+                  <Link to="/authorization">Избранное</Link>
+                </div>
+              )}
             </>
           )}
           {user && (

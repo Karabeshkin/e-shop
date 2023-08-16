@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const config = require('../../../client/src/config.json');
 const { Favourite, Product, Photo, Category } = require('../../db/models');
 
 router.get('/', async (req, res) => {
@@ -11,6 +12,7 @@ router.get('/', async (req, res) => {
     res.json({ message: error.message });
   }
 });
+
 
 router.post('/', async (req, res) => {
   try {

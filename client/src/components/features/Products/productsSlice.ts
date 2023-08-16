@@ -28,6 +28,9 @@ const productsSlice = createSlice({
     clearState: (state) => {
       state.products = [];
     },
+    clearSearchQuery: (state) => {
+      state.searchQuery = '';
+    }
   },
   extraReducers(builder) {
     builder
@@ -45,6 +48,7 @@ const productsSlice = createSlice({
       });
   },
 });
+export const { clearSearchQuery } = productsSlice.actions;
 export const { setSearchQuery } = productsSlice.actions;
 export const { clearState } = productsSlice.actions;
 export default productsSlice.reducer;
