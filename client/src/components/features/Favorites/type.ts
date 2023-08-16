@@ -1,25 +1,13 @@
-export type Product = {
-  id: number;
-  title: string;
-  cost: number;
-  category_id: number;
-  description: string;
-  Photos: Photo[];
-  Category: Category;
-};
+import { Product } from '../Products/type';
+
 export type State = {
-  products: Product[];
-  product: Product | undefined;
+  favorites: FavoriteProduct[];
   error: string | undefined;
 };
 
-export type Photo = {
+export type FavoriteProduct = {
   id: number;
+  user_id: number;
   product_id: number;
-  url: string;
-};
-
-export type Category = {
-  id: number;
-  title: string;
+  Product: Product;
 };

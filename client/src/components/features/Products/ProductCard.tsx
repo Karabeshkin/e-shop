@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 import { Product } from './type';
 import * as api from '../Cart/api';
 import { useAppDispatch } from '../store/store';
+// import { FavoriteProduct } from '../Favorites/type';
+import { addFavorite } from '../Favorites/favoritesSlice';
 
 function ProductCard({
   product,
@@ -11,33 +14,39 @@ function ProductCard({
   product: Product;
   title: string | undefined;
 }): JSX.Element {
+  // const [favorites, setFavorites] = useState<[]>([]);
   const dispatch = useAppDispatch();
-  const addCart = (): void => {
-    api.addCartFetch(product.id);
-  };
 
-  const addToFavorites = (): void => {
-    dispatch()
+  // const addCart = (product.id): void => {
+  //   api.addCartFetch(product.id);
+  // };
+
+  const addFavorites = (): void => {
+    dispatch(addFavorite(product.id));
   };
 
   return (
     <>
       <div>
-        <button type="button" onClick={() => addToFavorites(product.id)}>
+        <button type="button" onClick={addFavorites}>
           Добавить в избранное
         </button>
       </div>
       <div className="foto">
-        <Link to={`/categories/${title}/${product.id}`}>
+        {title ? (
+          <Link to={`/categories/${title}/${product.id}`}>
+            <img src={product.Photos[0].url} alt="product" />
+          </Link>
+        ) : (
           <img src={product.Photos[0].url} alt="product" />
-        </Link>
+        )}
       </div>
       <div>
         <div>{product.title}</div>
         <div>{product.cost}</div>
-        <button type="button" onClick={addCart}>
+        {/* <button type="button" onClick={addCart}>
           <img src="/cart.png" alt="cart" />
-        </button>
+        </button> */}
       </div>
     </>
   );

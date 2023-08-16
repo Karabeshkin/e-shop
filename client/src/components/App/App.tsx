@@ -10,7 +10,7 @@ import CategoryList from '../features/Category/CategoryList';
 import AdminProductsList from '../features/Admin/AdminProductsList';
 import ProductPage from '../features/Products/ProductPage';
 import ProductsList from '../features/Products/ProductsList';
-
+import FavoritesList from '../features/Favorites/FavoritesList';
 
 function App(): JSX.Element {
   return (
@@ -22,6 +22,7 @@ function App(): JSX.Element {
         <Route path="/authorization" element={<Authorization />} />
         <Route path="/" element={<CategoryList />} />
         <Route path="/:title" element={<ProductsList />} />
+        <Route path="/favorites" element={<FavoritesList />} />
         <Route path="/admin" element={<AdminProductsList />} />
         <Route path="/categories/:title" element={<CategoryPage />} />
         <Route path="/categories/:title/:idProd" element={<ProductPage />} />

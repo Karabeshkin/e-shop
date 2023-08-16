@@ -3,7 +3,6 @@ const { Product, Category, Photo } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
-    // const categories = await Category.findAll();
     const products = await Product.findAll({
       include: [{ model: Category }, { model: Photo }],
     });
