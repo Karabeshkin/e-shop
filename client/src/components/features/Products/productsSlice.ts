@@ -2,6 +2,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { State } from './type';
 import * as api from './api';
+import './Product.css'
 
 export const initialState: State = {
   products: [],
