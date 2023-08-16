@@ -1,0 +1,14 @@
+.Middle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin: 1%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 60%;
+  flex-direction: column;
+}
+
+

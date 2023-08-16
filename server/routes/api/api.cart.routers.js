@@ -1,5 +1,7 @@
+/* eslint-disable camelcase */
 const router = require('express').Router();
 const { Order, OrderItem, Product, Photo } = require('../../db/models');
+const orderitem = require('../../db/models/orderitem');
 
 router.post('/', async (req, res) => {
   try {
@@ -39,10 +41,40 @@ router.get('/', async (req, res) => {
         where: { order_id: order.id },
         include: { model: Product, include: { model: Photo } },
       });
-      res.json(orderitems);
+      res.status(200).json(orderitems);
     } else {
-      res.json({ message: 'корзина пуста' });
+      res.status(400).json({ message: 'нет' });
     }
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+router.delete('/:itemId', async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const result = await OrderItem.destroy({ where: { id: itemId } });
+    if (result > 0) {
+      res.status(200).json({ message: 'success', id: itemId });
+      return;
+    }
+    res.status(400).json({ message: 'error' });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+router.put('/:itemId', async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const { count } = req.body;
+    const item = await OrderItem.findOne({
+      where: { id: itemId },
+      include: { model: Product, include: { model: Photo } },
+    });
+    item.count = count;
+    await item.save();
+    res.json({ id: item.id, count: item.count });
   } catch (error) {
     res.json({ message: error.message });
   }

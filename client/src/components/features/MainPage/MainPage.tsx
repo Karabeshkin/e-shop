@@ -1,12 +1,17 @@
 import React from 'react';
 import './MainPage.css';
+import Sale from '../Sale/Sale';
+import SectionShop from '../ SectionShop/SectionShop';
+import Middle from '../Middle/Middle';
 
 export default function MainPage(): JSX.Element {
   return (
     <div>
-      <div className="main_page_div" />
-     {/* <h1>E-SHOP</h1> */}
+      <div className="Main">
+        <SectionShop />
+        <Middle />
+        <Sale />
+      </div>
     </div>
   );
 }
-//ljji
