@@ -42,8 +42,8 @@ function ProductsList(): JSX.Element {
   );
 
   return (
-    <div>
-      <div>
+    <div className='search1' >
+      <div className='search'>
         <input
           type="text"
           onChange={handleSearch}

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Product } from './type';
 import { useAppDispatch } from '../store/store';
 import { addFavorite } from '../Favorites/favoritesSlice';
-import './Product.css';
 import { addCartThunk } from '../Cart/cartSlice';
+import './Product.css';
 
 function ProductCard({
   product,
@@ -25,24 +25,29 @@ function ProductCard({
 
   return (
     <>
-      <div>
-        {title && <><div>{product.title}</div>
-        <div>{product.cost}</div></>}
-      </div>
+    
 
       <div className="productCard">
-
-        <button type="button" onClick={() => addFavorites()}>
-          Добавить в избранное
-        </button>
-
+        <div className="button">
+          <button type="button" onClick={() => addFavorites()}>
+            Добавить в избранное
+          </button>
+        </div>
         <div className="foto">
-        {title ? (
-          <Link to={`/categories/${title}/${product.id}`}>
+          {title ? (
+            <Link to={`/categories/${title}/${product.id}`}>
+              <img src={product.Photos[0].url} alt="product" />
+            </Link>
+          ) : (
             <img src={product.Photos[0].url} alt="product" />
-          </Link>
-        ) : (
-          <img src={product.Photos[0].url} alt="product" />
+          )}
+        </div>
+        <div>
+        {title && (
+          <>
+            <div>{product.title}</div>
+            <div>{product.cost}</div>
+          </>
         )}
       </div>
 
@@ -53,7 +58,6 @@ function ProductCard({
             <img src="/cart.png" alt="cart" />
           </button>
         </div>
-
       </div>
     </>
   );

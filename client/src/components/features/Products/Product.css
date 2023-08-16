@@ -5,8 +5,8 @@
   align-content: center;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 5%;
-  width: 30%;
+  width: 100%;
+  flex-direction: row;
 }
 
 .foto img {
@@ -44,16 +44,6 @@
   align-content: center;
 }
 
-.product {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10%;
-  align-content: center;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 120%;
-  flex-direction: row;
-}
 
 .productCard {
   border-radius: 5%;
@@ -73,5 +63,12 @@
   width: 30px;
 }
 button img {
+  width: 100%;
+}
+
+.search {
+  width: 100%;
+}
+.search1 {
   width: 100%;
 }
