@@ -8,6 +8,7 @@ export const initialState: State = {
   products: [],
   product: undefined,
   error: '',
+  searchQuery: '',
 };
 export const productsInit = createAsyncThunk('products/init', (title: string) =>
   api.initProductsFetch(title)
@@ -21,6 +22,9 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload;
+    },
     clearState: (state) => {
       state.products = [];
     },
@@ -41,5 +45,6 @@ const productsSlice = createSlice({
       });
   },
 });
+export const { setSearchQuery } = productsSlice.actions;
 export const { clearState } = productsSlice.actions;
 export default productsSlice.reducer;

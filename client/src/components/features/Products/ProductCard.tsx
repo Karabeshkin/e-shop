@@ -4,6 +4,8 @@ import { Product } from './type';
 import * as api from '../Cart/api';
 import { useAppDispatch } from '../store/store';
 import './Product.css';
+import { addCartThunk } from '../Cart/cartSlice';
+
 
 function ProductCard({
   product,
@@ -14,7 +16,7 @@ function ProductCard({
 }): JSX.Element {
   const dispatch = useAppDispatch();
   const addCart = (): void => {
-    api.addCartFetch(product.id);
+    dispatch(addCartThunk(product.id));
   };
 
   const addToFavorites = (): void => {

@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
+import { async } from 'q';
 import { DelCard } from '../Admin/type';
-import { Message, OrderItemInc } from './type';
+import { DelItem, Message, OrderItem, OrderItemInc, UpdItem } from './type';
 
 export const addCartFetch = async (prodId: number): Promise<Message> => {
   const res = await fetch('/api/cart', {
@@ -26,11 +27,9 @@ export const initCartFetch = async (): Promise<OrderItemInc[]> => {
   return data;
 };
 
-export const delOrderItemFetch = async ({
-  item,
-}: {
-  item: OrderItemInc;
-}): Promise<DelCard> => {
+export const delOrderItemFetch = async (
+  item: OrderItemInc
+): Promise<DelItem> => {
   const res = await fetch(`/api/cart/${item.id}`, {
     method: 'delete',
   });
@@ -39,5 +38,19 @@ export const delOrderItemFetch = async ({
     const { message } = await res.json();
     throw message;
   }
+  return data;
+};
+
+export const updateOrderItemFetch = async (item: UpdItem): Promise<UpdItem> => {
+  const res = await fetch(`/api/cart/${item.id}`, {
+    method: 'put',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      count: item.count,
+    }),
+  });
+  const data = await res.json();
   return data;
 };
