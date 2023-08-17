@@ -16,7 +16,7 @@ import { useAppDispatch } from '../features/store/store';
 import { authCheckUser } from '../features/Auth/authSlice';
 import { cartInit } from '../features/Cart/cartSlice';
 import AdminOrderList from '../features/Admin/AdminOrderList';
-
+import NotFoundPage from '../features/Page404/NotFoundPage';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -47,6 +47,7 @@ function App(): JSX.Element {
         <Route path="/categories/:title/:idProd" element={<ProductPage />} />
         <Route path="/cart" element={<CartList />} />
         <Route path="/admin/orders" element={<AdminOrderList />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
