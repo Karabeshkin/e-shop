@@ -1,0 +1,61 @@
+.AdminPage {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 100vw;
+  background-color: bisque;
+  align-content: flex-start;
+}
+
+.formAdmin {
+  width: 100%;
+}
+
+.CardImgAdmin {
+  width: 100%;
+}
+
+.CardImgAdmin img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.AdminPageMiddle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 1%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 60%;
+  justify-content: flex-start;
+}
+
+form {
+  width: 100% !important;
+  margin: 0px !important;
+}
+
+.MapProduct {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.AdminAddForm {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.NewProductAdmin {
+  width: 30%;
+  margin-bottom: 5%;
+  border: 1px solid bisque;
+  border-radius: 10px;
+}

@@ -37,7 +37,6 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
           +
         </button>
       </div>
-
       </div>
   </div>
   );
