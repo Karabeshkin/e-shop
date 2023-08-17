@@ -29,15 +29,6 @@ export default function Authorization(): JSX.Element {
   }, [user])
 
   return (
-
-//     <div>
-//       <form onSubmit={authorization}>
-//         <input name="phone" placeholder="phone" required onChange={(e) => setPhone(e.target.value)} />
-//         <input name="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)} />
-//         <button type="submit">Log In</button>
-//       </form>
-//       <div>{error}</div>
-
     <div className="loginMane">
       <div className="login">
         <NavbarMiddle/>

@@ -31,6 +31,9 @@ function ProductCard({
 
   return (
     <>
+
+      
+
       {status !== 'favorites' && (
         <div className="productCard">
           <button type="button" onClick={addFavorites}>
@@ -46,6 +49,7 @@ function ProductCard({
         </div>
       )}
 
+
       <div className="foto">
         {title ? (
           <Link to={`/categories/${title}/${product.id}`}>
@@ -55,6 +59,8 @@ function ProductCard({
           <img src={product.Photos[0].url} alt="product" />
         )}
       </div>
+
+
       <div className="price">
         <div>{product.title}</div>
         <div>{product.cost}</div>

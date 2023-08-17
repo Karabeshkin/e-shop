@@ -35,6 +35,10 @@ export const authorizationFetch = async (obj: Authorization): Promise<User> => {
 
 export const verificationFetch = async (): Promise<User> => {
   const res = await fetch('/api/auth/verification');
+  if (!res.ok) {
+    const { message } = await res.json();
+    throw message;
+  }
   const data = await res.json();
   return data;
 };
