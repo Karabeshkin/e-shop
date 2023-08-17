@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 const router = require('express').Router();
 const { Order, OrderItem, Product, Photo } = require('../../db/models');
-const orderitem = require('../../db/models/orderitem');
 
 router.post('/', async (req, res) => {
   try {
@@ -75,6 +74,21 @@ router.put('/:itemId', async (req, res) => {
     item.count = count;
     await item.save();
     res.json({ id: item.id, count: item.count });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+router.put('/:orderId/close', async (req, res) => {
+  try {
+    console.log('7777777');
+    const { orderId } = req.params;
+    const order = await Order.findOne({
+      where: { id: orderId },
+    });
+    order.isFinished = !order.isFinished;
+    await order.save();
+    res.json({ message: 'ok' });
   } catch (error) {
     res.json({ message: error.message });
   }

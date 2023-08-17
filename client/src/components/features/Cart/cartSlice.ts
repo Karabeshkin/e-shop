@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { DelItem, OrderItemInc, State, UpdItem } from './type';
+import { OrderItemInc, State, UpdItem, UpdOrder } from './type';
 import * as api from './api';
 
 export const initialState: State = {
@@ -19,6 +19,9 @@ export const delOrderItem = createAsyncThunk(
 export const updOrderItem = createAsyncThunk(
   'orderItem/updplus',
   (item: UpdItem) => api.updateOrderItemFetch(item)
+);
+export const updOrder = createAsyncThunk('updOrder', (id: number) =>
+  api.sendOrderFetch(id)
 );
 
 const cartSlice = createSlice({
@@ -49,6 +52,12 @@ const cartSlice = createSlice({
         );
       })
       .addCase(updOrderItem.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(updOrder.fulfilled, (state) => {
+        state.orderItems = [];
+      })
+      .addCase(updOrder.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },
