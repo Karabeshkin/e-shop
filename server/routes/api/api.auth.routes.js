@@ -58,7 +58,7 @@ router.post('/authorization', async (req, res) => {
     }
 
     req.session.userId = user.id;
-    res.json({ message: 'ok' });
+    res.json(user);
   } catch ({ message }) {
     res.json({ message });
   }

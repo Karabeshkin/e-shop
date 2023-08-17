@@ -14,12 +14,14 @@ function AdminOrderList(): JSX.Element {
     dispatch(initOrder());
   }, [dispatch]);
   return (
-    <div>
+    <>
       <NavbarMiddle />
-      {adminOrders.map((order) => (
-        <AdminOrderCard order={order} key={order.id} />
-      ))}
-    </div>
+      <div className="orderList">
+        {adminOrders.map((order) => (
+          <AdminOrderCard order={order} key={order.id} />
+        ))}
+      </div>
+    </>
   );
 }
 
