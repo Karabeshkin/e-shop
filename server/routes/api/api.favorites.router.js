@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
-const { Favourite, Product, Photo, Category } = require('../../db/models');
+const {
+  Favourite, Product, Photo, Category,
+} = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {

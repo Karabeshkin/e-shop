@@ -45,26 +45,24 @@ export type AddProduct = {
   categoryId: number;
   description: string;
 };
-export type OrderInc =
-  | {
+export type OrderInc = {
+  id: number;
+  user_id: number;
+  isFinished: boolean;
+  User: User;
+  OrderItems: [
+    {
       id: number;
-      user_id: number;
-      isFinished: boolean;
-      User: User;
-      OrderItems: [
-        {
-          id: number;
-          product_id: number;
-          order_id: number;
-          count: number;
-          Product: {
-            id: number;
-            title: string;
-            cost: number;
-            category_id: number;
-            description: string;
-          };
-        }
-      ];
+      product_id: number;
+      order_id: number;
+      count: number;
+      Product: {
+        id: number;
+        title: string;
+        cost: number;
+        category_id: number;
+        description: string;
+      };
     }
-
+  ];
+};

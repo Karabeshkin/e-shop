@@ -7,8 +7,6 @@ export type User = {
 
 export type UserId = User['id'];
 
-// export type UserWithOutId = Omit<User, 'id'>;
-
 export type UserAuthReg = {
   name: string;
   phone: string;

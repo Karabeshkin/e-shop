@@ -49,7 +49,6 @@ function ProductsList(): JSX.Element {
   return (
     <>
       <div className="search1">
-        {/* <div className="search"> */}
         <input
           type="text"
           onChange={handleSearch}

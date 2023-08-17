@@ -6,11 +6,10 @@
   margin: 1%;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  width:60vw;
+  width: 60vw;
   flex-direction: row;
   align-content: flex-start;
 }
-
 
 .categoryCard {
   border-radius: 5%;
@@ -22,4 +21,3 @@
   height: 150px;
   border-radius: 5%;
 }
-

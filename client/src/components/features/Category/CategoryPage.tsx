@@ -7,7 +7,7 @@ function CategoryPage(): JSX.Element {
   return (
     <div className="productList">
       <div className="productMiddle">
-      <NavbarMiddle/>
+        <NavbarMiddle />
         <div className="category">
           <ProductsList />
         </div>

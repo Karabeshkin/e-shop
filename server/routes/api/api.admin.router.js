@@ -23,12 +23,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-
-    
     const { url } = req.files;
-    const { name, cost, category, description } = req.body;
+    const {
+      name, cost, category, description,
+    } = req.body;
 
-    
     const newUrl = await fileUploadMiddleware(url);
 
     let newProduct = await Product.create({
@@ -41,7 +40,7 @@ router.post('/', async (req, res) => {
       product_id: newProduct.id,
       url: newUrl,
     });
-    
+
     newProduct = await Product.findOne({
       where: { id: newProduct.id },
       include: [{ model: Category }, { model: Photo }],
