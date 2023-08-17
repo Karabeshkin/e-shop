@@ -5,6 +5,7 @@ import { cartInit } from './cartSlice';
 import Cart from './Cart';
 import { OrderItemInc } from './type';
 import './cart.css';
+import NavbarMiddle from '../../NavbarMiddle/NavbarMiddle';
 
 function CartList(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -31,7 +32,7 @@ function CartList(): JSX.Element {
 
 
   return (
-    <>
+    <div className='CartList'>
       {isLoading && (
         <div className="preloader">
           <div className="preloader__image">
@@ -40,7 +41,8 @@ function CartList(): JSX.Element {
         </div>
       )}
 
-      <div>
+      <div className='clasListName'>
+        <NavbarMiddle/>
         {orderItems.length > 0 ? (
           <>
             {orderItems.map((item: OrderItemInc) => (
@@ -53,7 +55,7 @@ function CartList(): JSX.Element {
           <div>Ваша корзина пуста</div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

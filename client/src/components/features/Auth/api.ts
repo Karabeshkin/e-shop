@@ -33,16 +33,12 @@ export const authorizationFetch = async (obj: Authorization): Promise<User> => {
   return data;
 };
 
-// export const verificationFetch = async ():Promise<User> => {
-//     const res = await fetch('/api/auth/verification');
-//     const data = await res.json();
-//     return data;
-// };
 export const verificationFetch = async (): Promise<User> => {
   const res = await fetch('/api/auth/verification');
   const data = await res.json();
   return data;
 };
+
 
 export const logOutFetch = async (): Promise<void> => {
   const res = await fetch('/api/auth/logout', { credentials: 'include' });

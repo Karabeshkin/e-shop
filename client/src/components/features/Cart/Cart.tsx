@@ -19,14 +19,16 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
     dispatch(updOrderItem({ id: item.id, count: item.count + 1 }));
   };
   return (
-    <div>
+
+    <div className='Cart'>
       <img src={item.Product.Photos[0].url} alt="product" />
-      <div>{item.Product.title}</div>
-      <button type="button" onClick={delItem}>
+      <div className='cartBlock'>
+        <div>{item.Product.title}</div>
+        <button type="button" onClick={delItem}>
         <img src="./garbage.png" alt="garbage" />
         <div>{item.Product.cost}</div>
-      </button>
-      <div>
+          </button>
+          <div>
         <button type="button" onClick={() => updMinus()}>
           -
         </button>
@@ -35,7 +37,9 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
           +
         </button>
       </div>
-    </div>
+
+      </div>
+  </div>
   );
 }
 

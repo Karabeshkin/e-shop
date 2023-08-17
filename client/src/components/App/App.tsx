@@ -13,9 +13,15 @@ import FavoritesList from '../features/Favorites/FavoritesList';
 import CartList from '../features/Cart/CartList';
 import { initFavorite } from '../features/Favorites/favoritesSlice';
 import { useAppDispatch } from '../features/store/store';
+import { authCheckUser } from '../features/Auth/authSlice';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(authCheckUser());
+  }, []);
+
   useEffect(() => {
     dispatch(initFavorite());
   }, [dispatch]);
