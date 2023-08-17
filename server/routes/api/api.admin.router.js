@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const fileUploadMiddleware = require('../../middleware/fileUploadMiddleware');
 const {
   Product,
   Category,
@@ -22,21 +23,32 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const {
-      name, cost, categoryId, description,
-    } = req.body;
+
+    
+    const { url } = req.files;
+    const { name, cost, category, description } = req.body;
+
+    
+    const newUrl = await fileUploadMiddleware(url);
+
     let newProduct = await Product.create({
       title: name,
       cost,
-      category_id: categoryId,
+      category_id: Number(category),
       description,
     });
+    const newPhoto = await Photo.create({
+      product_id: newProduct.id,
+      url: newUrl,
+    });
+    
     newProduct = await Product.findOne({
       where: { id: newProduct.id },
       include: [{ model: Category }, { model: Photo }],
     });
     res.json(newProduct);
   } catch ({ message }) {
+    console.log(message, 'message');
     res.json({ message });
   }
 });

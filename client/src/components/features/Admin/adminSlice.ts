@@ -19,7 +19,7 @@ export const delProduct = createAsyncThunk(
 );
 export const addProduct = createAsyncThunk(
   'admin/product/add',
-  (obj: AddProduct) => api.addAdminProductFetch(obj)
+  ( objFile: FormData) => api.addAdminProductFetch( objFile)
 );
 export const updProduct = createAsyncThunk(
   'admin/product/upd',
