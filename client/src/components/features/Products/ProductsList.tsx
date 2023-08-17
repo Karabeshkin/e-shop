@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { clearState, productsInit, setSearchQuery, clearSearchQuery } from './productsSlice';
+import {
+  clearState,
+  productsInit,
+  setSearchQuery,
+  clearSearchQuery,
+} from './productsSlice';
 import ProductCard from './ProductCard';
 import { RootState, useAppDispatch } from '../store/store';
 import './Product.css';
@@ -26,7 +31,7 @@ function ProductsList(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    dispatch(clearSearchQuery())
+    dispatch(clearSearchQuery());
   }, []);
 
   useEffect(() => {
@@ -42,8 +47,8 @@ function ProductsList(): JSX.Element {
   );
 
   return (
-    <div className='search1' >
-      <div className='search'>
+    <div className="search1">
+      <div className="search">
         <input
           type="text"
           onChange={handleSearch}
@@ -54,7 +59,12 @@ function ProductsList(): JSX.Element {
       </div>
       <div className="product">
         {filteredProducts.map((product) => (
-          <ProductCard product={product} title={title} key={product.id} />
+          <ProductCard
+            product={product}
+            title={title}
+            key={product.id}
+            status="products"
+          />
         ))}
       </div>
     </div>

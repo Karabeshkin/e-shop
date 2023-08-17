@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
-import { cartInit } from './cartSlice';
+import { cartInit, updOrder } from './cartSlice';
 import Cart from './Cart';
 import { OrderItemInc } from './type';
 import './cart.css';
@@ -29,7 +29,10 @@ function CartList(): JSX.Element {
     dispatch(cartInit());
   }, [dispatch]);
 
-
+  const sendOrder = (): void => {
+    console.log('99')
+    dispatch(updOrder(orderItems[0].order_id));
+  };
 
   return (
     <div className='CartList'>
@@ -49,7 +52,9 @@ function CartList(): JSX.Element {
               <Cart item={item} key={item.id} />
             ))}
             <div>Итого: {fullPrice}</div>
-            <button type="button">Заказать</button>
+            <button type="button" onClick={sendOrder}>
+              Заказать
+            </button>
           </>
         ) : (
           <div>Ваша корзина пуста</div>

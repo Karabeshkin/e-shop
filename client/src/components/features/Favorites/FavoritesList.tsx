@@ -15,6 +15,7 @@ function FavoritesList(): JSX.Element {
           product={favorite.Product}
           key={favorite.id}
           title={undefined}
+          status='favorites'
         />
       ))}
     </div>

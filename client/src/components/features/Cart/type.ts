@@ -35,3 +35,7 @@ export type DelItem = {
   id: string;
   message: string;
 };
+export type UpdOrder = {
+  id: number;
+  isFinished: boolean;
+};
