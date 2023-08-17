@@ -15,6 +15,8 @@ import { initFavorite } from '../features/Favorites/favoritesSlice';
 import { useAppDispatch } from '../features/store/store';
 import { authCheckUser } from '../features/Auth/authSlice';
 import { cartInit } from '../features/Cart/cartSlice';
+import AdminOrderList from '../features/Admin/AdminOrderList';
+
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -44,6 +46,7 @@ function App(): JSX.Element {
         <Route path="/categories/:title" element={<CategoryPage />} />
         <Route path="/categories/:title/:idProd" element={<ProductPage />} />
         <Route path="/cart" element={<CartList />} />
+        <Route path="/admin/orders" element={<AdminOrderList />} />
       </Routes>
     </div>
   );

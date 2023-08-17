@@ -48,7 +48,7 @@ export default function Authorization(): JSX.Element {
           <button type="submit">Log In</button>
         </form>
       </div>
-
+      <div>{error}</div>
     </div>
   );
 }

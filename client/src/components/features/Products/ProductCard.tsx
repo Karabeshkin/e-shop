@@ -30,7 +30,11 @@ function ProductCard({
   };
 
   return (
-    <>
+
+   
+
+    <div className='CardDiv'>
+
       <div className="foto">
         {title ? (
           <Link to={`/categories/${title}/${product.id}`}>
@@ -62,7 +66,7 @@ function ProductCard({
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

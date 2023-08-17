@@ -1,6 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 
-import { DelItem, OrderItemInc, UpdItem } from './type';
+
+
+
+import { DelItem, Message, OrderItemInc, UpdItem } from './type';
+
 
 export const addCartFetch = async (prodId: number): Promise<OrderItemInc[]> => {
   const res = await fetch('/api/cart', {
@@ -56,6 +60,10 @@ export const updateOrderItemFetch = async (item: UpdItem): Promise<UpdItem> => {
 export const sendOrderFetch = async (
   id: number
 ): Promise<{ message: string }> => {
+
+
+
+
   const res = await fetch(`/api/cart/${id}/close`, {
     method: 'put',
   });
