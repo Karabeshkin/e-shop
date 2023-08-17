@@ -9,27 +9,26 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
     dispatch(delOrderItem(item));
   };
   const updMinus = (): void => {
-    dispatch(updOrderItem({id:item.id,count:item.count - 1}));
+    if (item.count > 1) {
+      dispatch(updOrderItem({ id: item.id, count: item.count - 1 }));
+    } else {
+      dispatch(delOrderItem(item));
+    }
   };
   const updPlus = (): void => {
-    dispatch(updOrderItem({id:item.id,count:item.count + 1}));
+    dispatch(updOrderItem({ id: item.id, count: item.count + 1 }));
   };
   return (
+
     <div className='Cart'>
-
-      {/* <img src={product.Photos[0].url} alt="product" />
-      <div>{product.title}</div>
-      <div>{product.cost}</div> */}
-
-
       <img src={item.Product.Photos[0].url} alt="product" />
       <div className='cartBlock'>
-      <div>{item.Product.title}</div>
-      <button type="button" onClick={delItem}>
+        <div>{item.Product.title}</div>
+        <button type="button" onClick={delItem}>
         <img src="./garbage.png" alt="garbage" />
         <div>{item.Product.cost}</div>
-      </button>
-      <div>
+          </button>
+          <div>
         <button type="button" onClick={() => updMinus()}>
           -
         </button>
@@ -38,8 +37,9 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
           +
         </button>
       </div>
+
       </div>
-    </div>
+  </div>
   );
 }
 

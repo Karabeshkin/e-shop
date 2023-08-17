@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router';
 // import Navbar from '../features/Navbar/Navbar';
@@ -11,10 +11,14 @@ import ProductPage from '../features/Products/ProductPage';
 import ProductsList from '../features/Products/ProductsList';
 import FavoritesList from '../features/Favorites/FavoritesList';
 import CartList from '../features/Cart/CartList';
-
-
+import { initFavorite } from '../features/Favorites/favoritesSlice';
+import { useAppDispatch } from '../features/store/store';
 
 function App(): JSX.Element {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(initFavorite());
+  }, [dispatch]);
   return (
     <div className="App">
       {/* <Navbar /> */}
