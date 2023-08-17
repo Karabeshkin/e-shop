@@ -1,4 +1,4 @@
-import { DelItem, OrderItemInc, UpdItem } from './type';
+import { DelItem, Message, OrderItemInc, UpdItem } from './type';
 
 export const addCartFetch = async (prodId: number): Promise<OrderItemInc[]> => {
   const res = await fetch('/api/cart', {

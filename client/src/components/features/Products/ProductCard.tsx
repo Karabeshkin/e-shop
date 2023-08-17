@@ -31,9 +31,11 @@ function ProductCard({
 
   return (
 
+
    
 
     <div className='CardDiv'>
+
 
       <div className="foto">
         {title ? (

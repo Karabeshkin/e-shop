@@ -44,6 +44,7 @@
 .productCard {
   border-radius: 5%;
   width: 100%;
+  
 }
 
 .price {
@@ -150,6 +151,7 @@ button img {
 a {
   width: 30% !important;
 }
+
 .buttons{
   display: flex;
 
@@ -165,4 +167,9 @@ margin: 5px;
   margin-bottom: 10%;
   width: 20%;
   border-radius: 15px;
+
+
+.foto{
+  margin-top: 5%;
+
 }
