@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import ProductCard from '../Products/ProductCard';
+import './Favorites.css';
+import NavbarMiddle from '../../NavbarMiddle/NavbarMiddle';
 
 function FavoritesList(): JSX.Element {
   const favoritesList = useSelector(
@@ -9,15 +11,21 @@ function FavoritesList(): JSX.Element {
   );
 
   return (
-    <div>
-      {favoritesList.map((favorite) => (
-        <ProductCard
-          product={favorite.Product}
-          key={favorite.id}
-          title={undefined}
-          status='favorites'
-        />
-      ))}
+    <div className="FavoriteList">
+      <div className="FavoriteListMiddle">
+        <NavbarMiddle />
+        <div className="CardFullDiv">
+          {favoritesList.map((favorite) => (
+            <ProductCard
+              product={favorite.Product}
+              key={favorite.id}
+              title={undefined}
+              status="favorites"
+            />
+          ))}
+        </div>
+      
+      </div>
     </div>
   );
 }
