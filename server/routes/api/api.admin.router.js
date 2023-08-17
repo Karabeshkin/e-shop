@@ -24,9 +24,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { url } = req.files;
-    const {
-      name, cost, category, description,
-    } = req.body;
+    const { name, cost, category, description } = req.body;
 
     const newUrl = await fileUploadMiddleware(url);
 
@@ -47,16 +45,13 @@ router.post('/', async (req, res) => {
     });
     res.json(newProduct);
   } catch ({ message }) {
-    console.log(message, 'message');
     res.json({ message });
   }
 });
 
 router.put('/', async (req, res) => {
   try {
-    const {
-      id, name, cost, categoryId, description,
-    } = req.body;
+    const { id, name, cost, categoryId, description } = req.body;
 
     if ((id, name, cost, categoryId, description)) {
       const result = await Product.findOne({
@@ -100,7 +95,6 @@ router.get('/orders', async (req, res) => {
       ],
     });
     if (orders) {
-      console.log(orders, '=======');
       res.json(orders);
     } else {
       res.json({ message: 'заказов нет!' });

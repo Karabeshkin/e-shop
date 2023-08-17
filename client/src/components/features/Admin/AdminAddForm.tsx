@@ -19,12 +19,6 @@ function AdminAddForm(): JSX.Element {
 
   const addAdminProduct = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(
-      name.current?.value,
-      cost.current?.value,
-      categoryI.current?.value,
-      description.current?.value
-    );
     if (
       refImage.current?.files?.length &&
       name.current?.value &&
