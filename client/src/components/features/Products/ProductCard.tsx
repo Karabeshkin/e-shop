@@ -30,21 +30,12 @@ function ProductCard({
   };
 
   return (
-    <div className="CardDiv">
-      {status !== 'favorites' && (
-        <div className="productCard">
-          <button type="button" onClick={addFavorites}>
-            Добавить в избранное
-          </button>
-        </div>
-      )}
-      {status === 'favorites' && (
-        <div>
-          <button type="button" onClick={delFavoriteFunc}>
-            Удалить из избранного
-          </button>
-        </div>
-      )}
+
+
+   
+
+    <div className='CardDiv'>
+
 
       <div className="foto">
         {title ? (
@@ -62,6 +53,20 @@ function ProductCard({
         <button className="buttonDob" type="button" onClick={addCart}>
           <img src="/cart.png" alt="cart" />
         </button>
+        {status !== 'favorites' && (
+          <div className="productCard">
+            <button type="button" onClick={addFavorites}>
+              <img src="/favoIcon.png" alt="favo pic" />
+            </button>
+          </div>
+        )}
+        {status === 'favorites' && (
+          <div>
+            <button type="button" onClick={delFavoriteFunc}>
+              Удалить из избранного
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

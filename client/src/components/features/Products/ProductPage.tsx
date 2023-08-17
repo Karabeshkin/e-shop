@@ -24,19 +24,18 @@ function ProductPage(): JSX.Element {
       <div className="CardMiddle">
         <NavbarMiddle />
         <div className="CardPageImg">
-          <div className='CardPageImgOne'>
-          <img src={oneProduct?.Photos[0].url} alt="product" />
+          <div className="CardPageImgOne">
+            <img src={oneProduct?.Photos[0].url} alt="product" />
           </div>
-          <div className='CardPageList'>
-          <div>{oneProduct?.title}</div>
-          <div>{oneProduct?.cost}</div>
-          <div>{oneProduct?.description}</div>
+          <div className="CardPageList">
+            <div>{oneProduct?.title}</div>
+            <div>{oneProduct?.cost}</div>
+            <div>{oneProduct?.description}</div>
           </div>
-          <div className='buttonBack'>
-          <button onClick={() => navigate(-1)} type="button">
-            Назад
-          </button>
-         
+          <div className="buttonBack">
+            <button onClick={() => navigate(-1)} type="button">
+              Назад
+            </button>
           </div>
         </div>
       </div>

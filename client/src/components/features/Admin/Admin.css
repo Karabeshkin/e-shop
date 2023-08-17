@@ -59,3 +59,20 @@ form {
   border: 1px solid bisque;
   border-radius: 10px;
 }
+.orderCard {
+  background-color: aliceblue;
+  margin: 1%;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 400px;
+}
+.orderHeader {
+  background-color: rgb(251, 180, 114);
+}
+.orderList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
