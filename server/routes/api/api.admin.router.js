@@ -1,5 +1,12 @@
 const router = require('express').Router();
-const { Product, Category, Photo } = require('../../db/models');
+const {
+  Product,
+  Category,
+  Photo,
+  Order,
+  OrderItem,
+  User,
+} = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
@@ -68,4 +75,23 @@ router.delete('/:productId', async (req, res) => {
   }
 });
 
+router.get('/orders', async (req, res) => {
+  try {
+    const orders = await Order.findAll({
+      where: { isFinished: true },
+      include: [
+        { model: User },
+        { model: OrderItem, include: { model: Product } },
+      ],
+    });
+    if (orders) {
+      console.log(orders, '=======');
+      res.json(orders);
+    } else {
+      res.json({ message: 'заказов нет!' });
+    }
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
 module.exports = router;

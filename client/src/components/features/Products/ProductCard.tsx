@@ -32,6 +32,7 @@ function ProductCard({
   return (
     <>
 
+
       
 
       {status !== 'favorites' && (
@@ -48,6 +49,7 @@ function ProductCard({
           </button>
         </div>
       )}
+
 
 
       <div className="foto">

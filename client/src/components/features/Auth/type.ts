@@ -10,6 +10,7 @@ export type User = {
   name: string;
   phone: string;
   password: string;
+  isAdmin: boolean;
 };
 
 export type Authorization = {
@@ -29,4 +30,4 @@ export type AuthState = {
 
 export type Message = {
   message: string;
-}
+};

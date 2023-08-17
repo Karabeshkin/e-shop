@@ -33,10 +33,9 @@ function NavbarMiddle(): JSX.Element {
               <div>
                 <Link to="/authorization">LogIn</Link>
               </div>
-              
             </>
           )}
-          {user && (
+          {user && !user.isAdmin && (
             <>
               <div>
                 <Link to="/cart">Корзина</Link>
@@ -46,6 +45,19 @@ function NavbarMiddle(): JSX.Element {
                   <Link to="/favorites">Избранное</Link>
                 </div>
               )}
+              <div>
+                <Link to="/" className="" onClick={logOutFetch}>
+                  LogOut
+                </Link>
+              </div>
+            </>
+          )}
+          {user && user.isAdmin && (
+            <>
+              <div>
+                <Link to="/admin">Админка</Link>
+              </div>
+              <Link to='/admin/orders'>Заказы</Link>
               <div>
                 <Link to="/" className="" onClick={logOutFetch}>
                   LogOut
