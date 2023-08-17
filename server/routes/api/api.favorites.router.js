@@ -4,7 +4,7 @@ const { Favourite, Product, Photo, Category } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
-    const { userId } = req.session.userId;
+    const { userId } = req.session;
     const favorites = await Favourite.findAll({
       where: { user_id: userId },
       include: [{ model: Product, include: { model: Photo } }],
@@ -32,7 +32,11 @@ router.post('/', async (req, res) => {
         await Favourite.destroy({
           where: { id: productFav.id },
         });
-        res.json(productFav);
+        const favorites = await Favourite.findAll({
+          where: { user_id: userIdsess },
+          include: [{ model: Product, include: { model: Photo } }],
+        });
+        res.json(favorites);
       } else {
         const favorites = await Favourite.create({
           user_id: userIdsess,
@@ -47,7 +51,11 @@ router.post('/', async (req, res) => {
             },
           ],
         });
-        res.json(productFav);
+        const favorites2 = await Favourite.findAll({
+          where: { user_id: userIdsess },
+          include: [{ model: Product, include: { model: Photo } }],
+        });
+        res.json(favorites2);
       }
     }
   } catch (error) {
@@ -58,14 +66,12 @@ router.post('/', async (req, res) => {
 router.delete('/:idFavorite', async (req, res) => {
   try {
     const { idFavorite } = req.params;
-    const { userId } = req.session.userId;
-    console.log(userId);
+    const { userId } = req.session;
     const result = await Favourite.destroy({
       where: { product_id: idFavorite, user_id: userId },
     });
-    console.log(result, '============');
     if (result > 0) {
-      res.json({ message: 'success', id: idFavorite });
+      res.json({ message: 'success', id: +idFavorite });
       return;
     }
     res.json({ message: 'error' });

@@ -12,7 +12,7 @@
 .foto img {
   width: 100%;
   height: 150px;
-  border-radius: 5%;
+  border-radius: 10px;
 }
 
 .foto {
@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: stretch;
   width: 100vw;
-  height: 100vh;
+  
   background-color: rgb(248, 227, 201);
 }
 
@@ -78,4 +78,70 @@ button img {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.CardPageOne {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(248, 227, 201);
+}
+
+.CardMiddle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 60%;
+  flex-direction: column;
+  align-content: center;
+  height: 100%;
+}
+
+.CardPageImg img {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.CardPageImg {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+}
+
+.CardPageOne {
+}
+
+.CardPageList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttonBack {
+  width: 40%;
+  height: 7%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.CardPageImgOne {
+  height: 70%;
+  border-radius: 10px;
+  width: 100%;
+
 }
