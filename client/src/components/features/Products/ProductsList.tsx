@@ -38,7 +38,7 @@ function ProductsList(): JSX.Element {
   };
 
   const filteredProducts = products.filter((product) =>
-    product.title.includes(searchQuery)
+    product.title.toLocaleLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (

@@ -11,7 +11,9 @@ router.post('/', async (req, res) => {
     });
 
     if (cart) {
-      const product = await OrderItem.findOne({ where: { product_id } });
+      const product = await OrderItem.findOne({
+        where: { product_id, order_id: cart.id },
+      });
       if (product) {
         product.count += 1;
         await product.save();
@@ -23,6 +25,7 @@ router.post('/', async (req, res) => {
         user_id: req.session.userId,
         isFinished: false,
       });
+
       await OrderItem.create({ product_id, order_id: cart.id });
     }
     res.json({ message: 'ok' });
