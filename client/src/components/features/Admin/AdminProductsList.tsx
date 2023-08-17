@@ -4,6 +4,7 @@ import { RootState, useAppDispatch } from '../store/store';
 import AdminProductCard from './AdminProductCard';
 import { initProduct } from './adminSlice';
 import AdminAddForm from './AdminAddForm';
+import NavbarMiddle from '../../NavbarMiddle/NavbarMiddle';
 
 function AdminProductsList(): JSX.Element {
   const dispatch = useAppDispatch();

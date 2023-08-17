@@ -28,7 +28,8 @@ function ProductCard({
   };
 
   return (
-       <div className="productCard">
+    <>
+      <div className="productCard">
         <button type="button" onClick={addFavorites}>
           Добавить в избранное
         </button>
@@ -55,7 +56,7 @@ function ProductCard({
           <img src="/cart.png" alt="cart" />
         </button>
       </div>
-    </div>
+    </>
   );
 }
 

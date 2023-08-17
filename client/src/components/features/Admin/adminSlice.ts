@@ -2,7 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AddProduct, Product, State } from './type';
 import * as api from './api';
 
-export const initialState: State = { products: [], categories: [], error: '' };
+export const initialState: State = {
+  products: [],
+  categories: [],
+  orders: [],
+  error: '',
+};
 
 export const initProduct = createAsyncThunk('admin/product/init', () =>
   api.initAdminProductFetch()
@@ -19,7 +24,9 @@ export const updProduct = createAsyncThunk(
   'admin/product/upd',
   (obj: AddProduct) => api.updAdminProductFetch(obj)
 );
-
+export const initOrder = createAsyncThunk('admin/order/init', () =>
+  api.initAdminOrderFetch()
+);
 const adminProductInitSlice = createSlice({
   name: 'adminProducts',
   initialState,
@@ -55,7 +62,13 @@ const adminProductInitSlice = createSlice({
       })
       .addCase(updProduct.rejected, (state, action) => {
         state.error = action.error.message;
-      });
+      })
+      .addCase(initOrder.fulfilled, (state, action) => {
+        state.orders = action.payload;
+      })
+      .addCase(initOrder.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
   },
 });
 
