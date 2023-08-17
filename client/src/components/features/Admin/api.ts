@@ -19,15 +19,11 @@ export const delAdminProductFetch = async ({
   return data;
 };
 
-export const addAdminProductFetch = async (
-  obj: AddProduct
-): Promise<Product> => {
+export const addAdminProductFetch = async ( obj : FormData): Promise<Product> => {
   const res = await fetch('admin/api/products', {
     method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(obj),
+
+    body: obj,
   });
   const data = await res.json();
   return data;

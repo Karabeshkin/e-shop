@@ -1,65 +1,75 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
 import { addProduct } from './adminSlice';
-import './Admin.css'
+import './Admin.css';
 
 function AdminAddForm(): JSX.Element {
   const dispatch = useAppDispatch();
   const categories = useSelector(
     (store: RootState) => store.adminProducts.categories
   );
+  const name = useRef<HTMLInputElement>(null);
+  const cost = useRef<HTMLInputElement>(null);
+  const categoryI = useRef<HTMLSelectElement>(null);
+  const description = useRef<HTMLInputElement>(null);
 
-  const [name, setName] = useState('');
-  const [cost, setCost] = useState('');
-  const [categoryId, setCategoryId] = useState(1);
-  const [description, setDescription] = useState('');
+  const refImage = useRef<HTMLInputElement>(null);
+
+  // это лежало в баттоне, это будет в функции сабмита, ее надо будет добавить в addAdminProduct
 
   const addAdminProduct = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(
-      addProduct({
-        name,
-        cost: Number(cost),
-        categoryId,
-        description,
-      })
-    );
-
-    setName('');
-    setCost('');
-    setCategoryId(1);
-    setDescription('');
+    console.log(name.current?.value,cost.current?.value,categoryI.current?.value,description.current?.value )
+    if (
+      refImage.current?.files?.length &&
+      name.current?.value &&
+      cost.current?.value &&
+      categoryI.current?.value &&
+      description.current?.value 
+    ) {
+      const url = refImage.current.files;
+      const nameInput = name.current.value;
+      const costInput = cost.current.value;
+      const categoryInput = categoryI.current.value;
+      const descriptionInput = description.current.value
+      const formData = new FormData();
+      for (const key in url) {
+        formData.append('url', url[key]);
+      }
+      formData.append('name', nameInput);
+      formData.append('cost', costInput);
+      formData.append('category', categoryInput);
+      formData.append('description', descriptionInput);
+      dispatch(addProduct(formData));
+    }
+    console.log('999999')
   };
 
   return (
-    <div className='formAdmin'>
+    <div className="formAdmin">
       <form
         action="submit"
         onSubmit={addAdminProduct}
         style={{ width: '1200px', marginLeft: '200px' }}
       >
-        <div >
+        <div>
           <input
             type="text"
             className="input_addItem"
             placeholder="Название товара"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            ref={name}
           />
           <input
             type="number"
             className="input_addItem"
             placeholder="Укажите цену"
-            value={cost}
-            onChange={(e) => setCost(e.target.value)}
+            ref={cost}
           />
-          <select
-            name="category"
-            onChange={(e) => setCategoryId(Number(e.target.value))}
-          >
+          <input type="file" id="file" ref={refImage} />
+          <select name="category" ref={categoryI}>
             {categories.map((category) => (
-              <option value={category.id} key={category.id}>
+              <option key={category.id} value={category.id}>
                 {category.title}
               </option>
             ))}
@@ -68,8 +78,7 @@ function AdminAddForm(): JSX.Element {
             type="text"
             className="input_descriptionItem"
             placeholder="Описание товара"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            ref={description}
           />
         </div>
         <button type="submit" className="btn_addItem">
