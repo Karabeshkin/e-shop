@@ -6,8 +6,8 @@ module.exports = {
     const userData = [
       {
         name: 'Андрей',
-        phone: '89000111922',
-        password: await bcrypt.hash('12345678', 10),
+        phone: '9999',
+        password: await bcrypt.hash('9999', 10),
         isAdmin: true,
       },
       {
