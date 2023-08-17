@@ -9,9 +9,11 @@ import './Product.css';
 function ProductCard({
   product,
   title,
+  status,
 }: {
   product: Product;
   title: string | undefined;
+  status: string;
 }): JSX.Element {
   const dispatch = useAppDispatch();
 
@@ -29,16 +31,20 @@ function ProductCard({
 
   return (
     <>
-      <div className="productCard">
-        <button type="button" onClick={addFavorites}>
-          Добавить в избранное
-        </button>
-      </div>
-      <div>
-        <button type="button" onClick={delFavoriteFunc}>
-          xFav
-        </button>
-      </div>
+      {status !== 'favorites' && (
+        <div className="productCard">
+          <button type="button" onClick={addFavorites}>
+            Добавить в избранное
+          </button>
+        </div>
+      )}
+      {status === 'favorites' && (
+        <div>
+          <button type="button" onClick={delFavoriteFunc}>
+            Удалить из избранного
+          </button>
+        </div>
+      )}
 
       <div className="foto">
         {title ? (
