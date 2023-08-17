@@ -1,5 +1,6 @@
 import React from 'react';
 import './Section.css';
+import { Link } from 'react-router-dom';
 
 function Section(): JSX.Element {
   return (
@@ -10,31 +11,51 @@ function Section(): JSX.Element {
       </div>
       <div className="DivspanSection">
         <img src="./gotovo.png" alt="напитки " />
-        <span className="spanSection"> Напитки </span>
+        <Link to="/categories/Чай" className="spanSection">
+          {' '}
+          Чай{' '}
+        </Link>
       </div>
       <div className="DivspanSection">
         <img src="./gotovoe.png" alt="готовая еда" />
-        <span className="spanSection"> Готовая еда </span>
+        <Link to="/categories/Чай" className="spanSection">
+          {' '}
+          Крупы{' '}
+        </Link>
       </div>
       <div className="DivspanSection">
         <img src="./ovoshi.png" alt="овощи" />
-        <span className="spanSection"> Овощи</span>
+        <Link to="/categories/Овощи" className="spanSection">
+          {' '}
+          Овощи
+        </Link>
       </div>
       <div className="DivspanSection">
         <img src="./fruct.png" alt="фрукты" />
-        <span className="spanSection"> Фрукты </span>
+        <Link to="/categories/Фрукты" className="spanSection">
+          {' '}
+          Фрукты{' '}
+        </Link>
       </div>
       <div className="DivspanSection">
         <img src="./cardSection..png" alt="мясо" />
-        <span className="spanSection"> Мясо и рыба </span>
+        <Link to="/categories/Мясо" className="spanSection">
+          Мясо
+        </Link>
       </div>
       <div className="DivspanSection">
         <img src="./chips.png" alt="чипсы" />
-        <span className="spanSection"> Снеки </span>
+        <Link to="/categories/Рыба" className="spanSection">
+          {' '}
+          Снеки{' '}
+        </Link>
       </div>
       <div className="DivspanSection">
         <img src="./hleb.png" alt="хлеб" />
-        <span className="spanSection"> Хлеб и выпечка </span>
+        <Link to="/categories/Хлеб" className="spanSection">
+          {' '}
+          Хлеб и выпечка{' '}
+        </Link>
       </div>
     </div>
   );
