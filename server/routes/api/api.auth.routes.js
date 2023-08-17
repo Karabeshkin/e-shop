@@ -4,7 +4,9 @@ const { User } = require('../../db/models');
 
 router.post('/registration', async (req, res) => {
   try {
-    const { name, phone, password, cpassword } = req.body;
+    const {
+      name, phone, password, cpassword,
+    } = req.body;
     const trimmedName = name.trim();
     const trimmedPhone = phone.trim();
     const trimmedPassword = password.trim();
@@ -12,10 +14,10 @@ router.post('/registration', async (req, res) => {
 
     let user = await User.findOne({ where: { phone } });
     if (
-      !trimmedName ||
-      !trimmedPhone ||
-      !trimmedPassword ||
-      !trimmedCpassword
+      !trimmedName
+      || !trimmedPhone
+      || !trimmedPassword
+      || !trimmedCpassword
     ) {
       res.status(400).json({ message: 'Заполните все поля' });
       return;

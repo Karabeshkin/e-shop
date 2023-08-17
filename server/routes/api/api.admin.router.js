@@ -22,7 +22,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, cost, categoryId, description } = req.body;
+    const {
+      name, cost, categoryId, description,
+    } = req.body;
     let newProduct = await Product.create({
       title: name,
       cost,
@@ -41,7 +43,9 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
   try {
-    const { id, name, cost, categoryId, description } = req.body;
+    const {
+      id, name, cost, categoryId, description,
+    } = req.body;
 
     if ((id, name, cost, categoryId, description)) {
       const result = await Product.findOne({

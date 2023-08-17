@@ -3,7 +3,7 @@ import { Product } from './type';
 import { useAppDispatch } from '../store/store';
 import { delProduct } from './adminSlice';
 import AdminUpdateForm from './AdminUpdateForm';
-import './Admin.css'
+import './Admin.css';
 
 function AdminProductCard({ product }: { product: Product }): JSX.Element {
   const dispatch = useAppDispatch();
@@ -17,11 +17,11 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
   };
 
   return (
-    <div className='NewProductAdmin'>
+    <div className="NewProductAdmin">
       {update ? (
         <>
           <div>{product.title}</div>
-          <div className='CardImgAdmin'>
+          <div className="CardImgAdmin">
             <img src={product.Photos[0]?.url} alt="" />
           </div>
           <div>{product.cost}</div>

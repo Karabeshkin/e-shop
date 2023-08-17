@@ -19,26 +19,25 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
     dispatch(updOrderItem({ id: item.id, count: item.count + 1 }));
   };
   return (
-
-    <div className='Cart'>
+    <div className="Cart">
       <img src={item.Product.Photos[0].url} alt="product" />
-      <div className='cartBlock'>
+      <div className="cartBlock">
         <div>{item.Product.title}</div>
         <button type="button" onClick={delItem}>
-        <img src="./garbage.png" alt="garbage" />
-        <div>{item.Product.cost}</div>
+          <img src="./garbage.png" alt="garbage" />
+          <div>{item.Product.cost}</div>
+        </button>
+        <div>
+          <button type="button" onClick={() => updMinus()}>
+            -
           </button>
-          <div>
-        <button type="button" onClick={() => updMinus()}>
-          -
-        </button>
-        <div>{item.count}</div>
-        <button type="button" onClick={updPlus}>
-          +
-        </button>
+          <div>{item.count}</div>
+          <button type="button" onClick={updPlus}>
+            +
+          </button>
+        </div>
       </div>
-      </div>
-  </div>
+    </div>
   );
 }
 
