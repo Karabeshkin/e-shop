@@ -9,9 +9,9 @@ export const initialState: State = {
 export const cartInit = createAsyncThunk('cart/init', () =>
   api.initCartFetch()
 );
-export const addCartThunk = createAsyncThunk('cart/add', (id: number) => {
-  api.addCartFetch(id);
-});
+export const addCartThunk = createAsyncThunk('cart/add', (id: number) =>
+  api.addCartFetch(id)
+);
 export const delOrderItem = createAsyncThunk(
   'orderItem/del',
   (item: OrderItemInc) => api.delOrderItemFetch(item)
@@ -34,6 +34,12 @@ const cartSlice = createSlice({
         state.orderItems = action.payload;
       })
       .addCase(cartInit.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(addCartThunk.fulfilled, (state, action) => {
+        state.orderItems = action.payload;
+      })
+      .addCase(addCartThunk.rejected, (state, action) => {
         state.error = action.error.message;
       })
       .addCase(delOrderItem.fulfilled, (state, action) => {

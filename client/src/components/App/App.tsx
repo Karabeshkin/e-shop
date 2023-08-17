@@ -14,7 +14,9 @@ import CartList from '../features/Cart/CartList';
 import { initFavorite } from '../features/Favorites/favoritesSlice';
 import { useAppDispatch } from '../features/store/store';
 import { authCheckUser } from '../features/Auth/authSlice';
+import { cartInit } from '../features/Cart/cartSlice';
 import AdminOrderList from '../features/Admin/AdminOrderList';
+
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -26,6 +28,11 @@ function App(): JSX.Element {
   useEffect(() => {
     dispatch(initFavorite());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(cartInit());
+  }, [dispatch]);
+
   return (
     <div className="App">
       {/* <Navbar /> */}
