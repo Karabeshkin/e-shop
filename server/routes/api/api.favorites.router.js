@@ -1,9 +1,12 @@
 const router = require('express').Router();
+
 const { Favourite, Product, Photo, Category } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
+    const { userId } = req.session.userId;
     const favorites = await Favourite.findAll({
+      where: { user_id: userId },
       include: [{ model: Product, include: { model: Photo } }],
     });
 
@@ -52,13 +55,22 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:idFavorite/delete', async (req, res) => {
+router.delete('/:idFavorite', async (req, res) => {
   try {
     const { idFavorite } = req.params;
-    const delFavorite = await Favourite.destroy({ where: { id: idFavorite } });
-    res.json({ delFavorite });
-  } catch (error) {
-    res.json({ message: error.message });
+    const { userId } = req.session.userId;
+    console.log(userId);
+    const result = await Favourite.destroy({
+      where: { product_id: idFavorite, user_id: userId },
+    });
+    console.log(result, '============');
+    if (result > 0) {
+      res.json({ message: 'success', id: idFavorite });
+      return;
+    }
+    res.json({ message: 'error' });
+  } catch ({ message }) {
+    res.json({ message });
   }
 });
 module.exports = router;
