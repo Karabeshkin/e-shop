@@ -8,8 +8,26 @@ module.exports = {
         description: 'вкусный',
         category_id: 1,
       },
-      {
+      { 
         title: 'Черный чай',
+        cost: 10000,
+        description: 'вкусный',
+        category_id: 1,
+      },
+      { 
+        title: 'Желтый чай',
+        cost: 10000,
+        description: 'вкусный',
+        category_id: 1,
+      },
+      { 
+        title: 'Красный чай',
+        cost: 10000,
+        description: 'вкусный',
+        category_id: 1,
+      },
+      {
+        title: 'Синий чай',
         cost: 10000,
         description: 'не вкусный',
         category_id: 1,

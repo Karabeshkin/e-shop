@@ -3,6 +3,18 @@ module.exports = {
     const photoData = [
       {
         url: 'https://www.m24.ru/b/d/nBkSUhL2hFUum82wJr6BrNOp2Z318Ji-miDHnvyDoGuQYX7XByXLjCdwu5tI-BaO-42NvWWBK8AqGfS8kjIzIymM8G1N_xHb1A=-hbbDq2N9Bi-2C4pFFsqNg.jpg',
+        product_id: 5,
+      },
+      {
+        url: 'https://www.m24.ru/b/d/nBkSUhL2hFUum82wJr6BrNOp2Z318Ji-miDHnvyDoGuQYX7XByXLjCdwu5tI-BaO-42NvWWBK8AqGfS8kjIzIymM8G1N_xHb1A=-hbbDq2N9Bi-2C4pFFsqNg.jpg',
+        product_id: 6,
+      },
+      {
+        url: 'https://www.m24.ru/b/d/nBkSUhL2hFUum82wJr6BrNOp2Z318Ji-miDHnvyDoGuQYX7XByXLjCdwu5tI-BaO-42NvWWBK8AqGfS8kjIzIymM8G1N_xHb1A=-hbbDq2N9Bi-2C4pFFsqNg.jpg',
+        product_id: 1,
+      },
+      {
+        url: 'https://www.m24.ru/b/d/nBkSUhL2hFUum82wJr6BrNOp2Z318Ji-miDHnvyDoGuQYX7XByXLjCdwu5tI-BaO-42NvWWBK8AqGfS8kjIzIymM8G1N_xHb1A=-hbbDq2N9Bi-2C4pFFsqNg.jpg',
         product_id: 1,
       },
       {
