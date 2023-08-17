@@ -25,13 +25,13 @@ function ProductCard({
 
   return (
 
-    <div>
-      {title && (
+    <div className='productFullList'>
+      {/* {title && (
         <>
           <div>{product.title}</div>
           <div>{product.cost}</div>
         </>
-      )}
+      )} */}
       <div className="productCard">
         <button type="button" onClick={addFavorites}>
           Добавить в избранное
