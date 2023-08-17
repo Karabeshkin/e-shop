@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Product } from './type';
 import { RootState, useAppDispatch } from '../store/store';
 import { updProduct } from './adminSlice';
+import './Admin.css'
 
 function AdminUpdateForm({
   product,

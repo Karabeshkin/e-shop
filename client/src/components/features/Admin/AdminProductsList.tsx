@@ -4,6 +4,8 @@ import { RootState, useAppDispatch } from '../store/store';
 import AdminProductCard from './AdminProductCard';
 import { initProduct } from './adminSlice';
 import AdminAddForm from './AdminAddForm';
+import './Admin.css';
+import NavbarMiddle from '../../NavbarMiddle/NavbarMiddle';
 
 function AdminProductsList(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -16,11 +18,18 @@ function AdminProductsList(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <div>
-      <AdminAddForm />
-      {adminProducts.map((product) => (
-        <AdminProductCard product={product} key={product.id} />
-      ))}
+    <div className="AdminPage">
+      <div className="AdminPageMiddle">
+        <NavbarMiddle/>
+        <div className="AdminAddForm ">
+          <AdminAddForm />
+        </div>
+        <div className="MapProduct">
+          {adminProducts.map((product) => (
+            <AdminProductCard product={product} key={product.id} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
