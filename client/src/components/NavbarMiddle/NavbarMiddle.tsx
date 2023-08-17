@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../features/store/store';
@@ -8,6 +8,10 @@ import config from '../../config.json';
 
 function NavbarMiddle(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
+  const cartItems = useSelector(
+    (store: RootState) => store.orderItems.orderItems
+  );
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -17,6 +21,12 @@ function NavbarMiddle(): JSX.Element {
       navigate('/');
     }
   };
+
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    setCartCount(cartItems.reduce((acc, el) => acc + el.count, 0));
+  }, [cartItems]);
 
   return (
     <nav className="navbar orange lighten-4">
@@ -33,13 +43,12 @@ function NavbarMiddle(): JSX.Element {
               <div>
                 <Link to="/authorization">LogIn</Link>
               </div>
-              
             </>
           )}
           {user && (
             <>
               <div>
-                <Link to="/cart">Корзина</Link>
+                <Link to="/cart">Корзина: {cartCount}</Link>
               </div>
               {config.favourites && (
                 <div>

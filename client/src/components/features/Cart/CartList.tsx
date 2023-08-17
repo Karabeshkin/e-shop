@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
-import { cartInit, updOrder } from './cartSlice';
+import { updOrder } from './cartSlice';
 import Cart from './Cart';
 import { OrderItemInc } from './type';
 import './cart.css';
@@ -25,17 +25,12 @@ function CartList(): JSX.Element {
     setIsLoading(false);
   }, 1000);
 
-  useEffect(() => {
-    dispatch(cartInit());
-  }, [dispatch]);
-
   const sendOrder = (): void => {
-    console.log('99')
     dispatch(updOrder(orderItems[0].order_id));
   };
 
   return (
-    <div className='CartList'>
+    <div className="CartList">
       {isLoading && (
         <div className="preloader">
           <div className="preloader__image">
@@ -44,8 +39,8 @@ function CartList(): JSX.Element {
         </div>
       )}
 
-      <div className='clasListName'>
-        <NavbarMiddle/>
+      <div className="clasListName">
+        <NavbarMiddle />
         {orderItems.length > 0 ? (
           <>
             {orderItems.map((item: OrderItemInc) => (
