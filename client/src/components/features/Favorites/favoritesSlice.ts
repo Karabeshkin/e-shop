@@ -30,23 +30,14 @@ const favoritesSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addFavorite.fulfilled, (state, action) => {
-        const finded = state.favorites.filter(
-          (el) => el.id === action.payload.id
-        );
-        if (finded.length > 0) {
-          state.favorites.filter(
-            (el) => el.product_id !== action.payload.product_id
-          );
-        } else {
-          state.favorites.push(action.payload);
-        }
+        state.favorites = action.payload;
       })
       .addCase(addFavorite.rejected, (state, action) => {
         state.error = action.error.message;
       })
       .addCase(delFavorite.fulfilled, (state, action) => {
-        state.favorites.filter(
-          (el) => el.product_id !== action.payload.product_id
+        state.favorites = state.favorites.filter(
+          (el) => el.product_id !== action.payload.id
         );
       })
       .addCase(delFavorite.rejected, (state, action) => {

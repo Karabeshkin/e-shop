@@ -8,7 +8,7 @@ export const initFavoriteFetch = async (): Promise<FavoriteProduct[]> => {
 
 export const addFavoriteFetch = async (
   id: number
-): Promise<FavoriteProduct> => {
+): Promise<FavoriteProduct[]> => {
   const res = await fetch('/api/favorites', {
     method: 'post',
     headers: {
