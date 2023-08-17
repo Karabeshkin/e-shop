@@ -30,7 +30,7 @@ function ProductCard({
   };
 
   return (
-    <>
+    <div className='CardDiv'>
 
 
       
@@ -70,7 +70,7 @@ function ProductCard({
           <img src="/cart.png" alt="cart" />
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
