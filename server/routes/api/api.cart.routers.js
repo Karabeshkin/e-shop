@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 const router = require('express').Router();
-const { Order, OrderItem, Product, Photo } = require('../../db/models');
+const {
+  Order, OrderItem, Product, Photo,
+} = require('../../db/models');
 
 router.post('/', async (req, res) => {
   try {
@@ -27,7 +29,11 @@ router.post('/', async (req, res) => {
 
       await OrderItem.create({ product_id, order_id: cart.id });
     }
-    res.json({ message: 'ok' });
+    const orderitems = await OrderItem.findAll({
+      where: { order_id: cart.id },
+      include: { model: Product, include: { model: Photo } },
+    });
+    res.json(orderitems);
   } catch (error) {
     res.json({ message: error.message });
   }
@@ -84,14 +90,17 @@ router.put('/:itemId', async (req, res) => {
 
 router.put('/:orderId/close', async (req, res) => {
   try {
-    console.log('7777777');
     const { orderId } = req.params;
     const order = await Order.findOne({
       where: { id: orderId },
     });
     order.isFinished = !order.isFinished;
     await order.save();
-    res.json({ message: 'ok' });
+    const orderitems = await OrderItem.findAll({
+      where: { order_id: order.id },
+      include: { model: Product, include: { model: Photo } },
+    });
+    res.status(200).json(orderitems);
   } catch (error) {
     res.json({ message: error.message });
   }

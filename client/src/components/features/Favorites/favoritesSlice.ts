@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from './api';
 import { State } from './type';
+import './Favorites.css';
 
 export const initialState: State = { favorites: [], error: '' };
 

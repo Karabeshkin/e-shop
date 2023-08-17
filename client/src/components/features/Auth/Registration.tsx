@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
@@ -16,8 +15,7 @@ export default function Registration(): JSX.Element {
   const navigate = useNavigate();
 
   const error = useSelector((store: RootState) => store.auth.error);
-  const user = useSelector((store:RootState) => store.auth.user);
-
+  const user = useSelector((store: RootState) => store.auth.user);
 
   const registr = async (
     e: React.FormEvent<HTMLFormElement>
@@ -36,16 +34,13 @@ export default function Registration(): JSX.Element {
     } catch (errorr) {
       console.log(errorr);
     }
-
   };
 
   useEffect(() => {
     if (user) {
-      navigate('/')
+      navigate('/');
     }
-  }, [user])
-
-
+  }, [user]);
 
   return (
     <div className="registrMane">
@@ -79,7 +74,11 @@ export default function Registration(): JSX.Element {
             required
             onChange={(e) => setCpassword(e.target.value)}
           />
-          <button type="submit">register</button>
+          <div className="regButDiv">
+            <button className="regBut" type="submit">
+              Зарегистрироваться
+            </button>
+          </div>
         </form>
       </div>
       <div>{error}</div>

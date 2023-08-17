@@ -1,0 +1,36 @@
+.FavoriteList {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.FavoriteListMiddle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 60%;
+  flex-direction: row;
+  align-content: flex-start;
+}
+
+.CardFullDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.CardDiv {
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+

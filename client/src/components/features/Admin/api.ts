@@ -1,6 +1,5 @@
 import { DelCard, Product, InitCategory, AddProduct, OrderInc } from './type';
 
-// eslint-disable-next-line import/prefer-default-export
 export const initAdminProductFetch = async (): Promise<InitCategory> => {
   const res = await fetch('admin/api/products');
   const data = await res.json();
@@ -46,6 +45,5 @@ export const updAdminProductFetch = async (
 export const initAdminOrderFetch = async (): Promise<OrderInc[]> => {
   const res = await fetch('/admin/api/products/orders');
   const data = await res.json();
-  console.log(data,'fetch')
   return data;
 };

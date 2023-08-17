@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
 import { categoriesInit } from './categorySlice';
 import CategoryCard from './CategoryCard';
-// import './Category.css';
 
 function CategoryList(): JSX.Element {
   const dispatch = useAppDispatch();

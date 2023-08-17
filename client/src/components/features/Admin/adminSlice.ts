@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AddProduct, Product, State } from './type';
 import * as api from './api';
-import './Admin.css'
+import './Admin.css';
 
 export const initialState: State = {
   products: [],
@@ -69,7 +69,7 @@ const adminProductInitSlice = createSlice({
       })
       .addCase(initOrder.rejected, (state, action) => {
         state.error = action.error.message;
-      })
+      });
   },
 });
 
