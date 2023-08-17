@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from './type';
 import { useAppDispatch } from '../store/store';
-import { addFavorite } from '../Favorites/favoritesSlice';
+import { addFavorite, delFavorite } from '../Favorites/favoritesSlice';
 import { addCartThunk } from '../Cart/cartSlice';
 import './Product.css';
 
@@ -19,12 +19,15 @@ function ProductCard({
     dispatch(addFavorite(product.id));
   };
 
+  const delFavoriteFunc = (): void => {
+    dispatch(delFavorite(product.id));
+  };
+
   const addCart = (): void => {
     dispatch(addCartThunk(product.id));
   };
 
   return (
-
     <div>
       {title && (
         <>
@@ -36,25 +39,30 @@ function ProductCard({
         <button type="button" onClick={addFavorites}>
           Добавить в избранное
         </button>
-     </div>
-
-        <div className="foto">
-          {title ? (
-            <Link to={`/categories/${title}/${product.id}`}>
-              <img src={product.Photos[0].url} alt="product" />
-            </Link>
-          ) : (
-            <img src={product.Photos[0].url} alt="product" />
-          )}
-        </div>
-        <div className="price">
-          <div>{product.title}</div>
-          <div>{product.cost}</div>
-          <button className="buttonDob" type="button" onClick={addCart}>
-            <img src="/cart.png" alt="cart" />
-          </button>
-        </div>
       </div>
+      <div>
+        <button type="button" onClick={delFavoriteFunc}>
+          xFav
+        </button>
+      </div>
+
+      <div className="foto">
+        {title ? (
+          <Link to={`/categories/${title}/${product.id}`}>
+            <img src={product.Photos[0].url} alt="product" />
+          </Link>
+        ) : (
+          <img src={product.Photos[0].url} alt="product" />
+        )}
+      </div>
+      <div className="price">
+        <div>{product.title}</div>
+        <div>{product.cost}</div>
+        <button className="buttonDob" type="button" onClick={addCart}>
+          <img src="/cart.png" alt="cart" />
+        </button>
+      </div>
+    </div>
   );
 }
 
