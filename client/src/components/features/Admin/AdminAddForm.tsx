@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react';
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
+import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
 import { addProduct } from './adminSlice';
@@ -13,26 +15,28 @@ function AdminAddForm(): JSX.Element {
   const cost = useRef<HTMLInputElement>(null);
   const categoryI = useRef<HTMLSelectElement>(null);
   const description = useRef<HTMLInputElement>(null);
-
   const refImage = useRef<HTMLInputElement>(null);
-
-  // это лежало в баттоне, это будет в функции сабмита, ее надо будет добавить в addAdminProduct
 
   const addAdminProduct = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(name.current?.value,cost.current?.value,categoryI.current?.value,description.current?.value )
+    console.log(
+      name.current?.value,
+      cost.current?.value,
+      categoryI.current?.value,
+      description.current?.value
+    );
     if (
       refImage.current?.files?.length &&
       name.current?.value &&
       cost.current?.value &&
       categoryI.current?.value &&
-      description.current?.value 
+      description.current?.value
     ) {
       const url = refImage.current.files;
       const nameInput = name.current.value;
       const costInput = cost.current.value;
       const categoryInput = categoryI.current.value;
-      const descriptionInput = description.current.value
+      const descriptionInput = description.current.value;
       const formData = new FormData();
       for (const key in url) {
         formData.append('url', url[key]);
@@ -43,7 +47,6 @@ function AdminAddForm(): JSX.Element {
       formData.append('description', descriptionInput);
       dispatch(addProduct(formData));
     }
-    console.log('999999')
   };
 
   return (

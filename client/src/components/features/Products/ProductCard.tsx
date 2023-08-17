@@ -30,13 +30,7 @@ function ProductCard({
   };
 
   return (
-
-
-   
-
-    <div className='CardDiv'>
-
-
+    <div className="CardDiv">
       <div className="foto">
         {title ? (
           <Link to={`/categories/${title}/${product.id}`}>
@@ -50,27 +44,37 @@ function ProductCard({
       <div className="price">
         <div>{product.title}</div>
         <div>{`Цена: ${product.cost}`}</div>
-        <div className='buttons'>
+        <div className="buttons">
           <div className="productCard">
-        <button  className='buttoncard' type="button" onClick={addCart}>
-          <img src="/cart.png" alt="cart" />
-        </button>
+            <button className="buttoncard" type="button" onClick={addCart}>
+              <img src="/cart.png" alt="cart" />
+            </button>
+          </div>
+          <div className="buttons">
+            {status !== 'favorites' && (
+              <div className="productCard">
+                <button
+                  className="buttoncard"
+                  type="button"
+                  onClick={addFavorites}
+                >
+                  <img src="/favoIcon.png" alt="favo pic" />
+                </button>
+              </div>
+            )}
+          </div>
+          {status === 'favorites' && (
+            <div className="productCard">
+              <button
+                className="buttoncard"
+                type="button"
+                onClick={delFavoriteFunc}
+              >
+                <img src="/unFav.png" alt="favo pic" />
+              </button>
+            </div>
+          )}
         </div>
-        {status !== 'favorites' && (
-          <div className="productCard">
-            <button className='buttoncard' type="button" onClick={addFavorites}>
-              <img src="/favoIcon.png" alt="favo pic" />
-            </button>
-          </div>
-        )}
-         </div>
-        {status === 'favorites' && (
-          <div>
-            <button type="button" onClick={delFavoriteFunc}>
-              Удалить из избранного
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

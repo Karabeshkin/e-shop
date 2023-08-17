@@ -9,7 +9,7 @@ function CategoryList(): JSX.Element {
   const categories = useSelector(
     (store: RootState) => store.categories.categories
   );
-  
+
   useEffect(() => {
     dispatch(categoriesInit());
   }, [dispatch]);

@@ -24,7 +24,6 @@ function FavoritesList(): JSX.Element {
             />
           ))}
         </div>
-      
       </div>
     </div>
   );

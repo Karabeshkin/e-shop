@@ -7,7 +7,6 @@ import adminProductInitSlice from '../Admin/adminSlice';
 import favoritesSlice from '../Favorites/favoritesSlice';
 import cartSlice from '../Cart/cartSlice';
 
-
 const store = configureStore({
   reducer: {
     categories: categoriesSlice,

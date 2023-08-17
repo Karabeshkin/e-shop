@@ -7,7 +7,7 @@ function Middle(): JSX.Element {
   return (
     <div className="Middle">
       <NavbarMiddle />
-   
+
       <CategoryList />
     </div>
   );

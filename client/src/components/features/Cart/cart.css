@@ -18,7 +18,7 @@
   margin-top: -32px;
   margin-left: -32px;
   background: url('../../../../../server/public/Preloader.gif') no-repeat 50%
-    50%; /*расположение (url) изображения gif и др. параметры*/
+    50%;
 }
 
 .loaded_hiding .preloader {

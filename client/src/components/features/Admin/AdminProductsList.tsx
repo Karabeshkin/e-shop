@@ -20,7 +20,7 @@ function AdminProductsList(): JSX.Element {
   return (
     <div className="AdminPage">
       <div className="AdminPageMiddle">
-        <NavbarMiddle/>
+        <NavbarMiddle />
         <div className="AdminAddForm ">
           <AdminAddForm />
         </div>
