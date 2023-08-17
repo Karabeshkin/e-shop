@@ -1,7 +1,12 @@
 /* eslint-disable import/prefer-default-export */
-import { async } from 'q';
-import { DelCard } from '../Admin/type';
-import { DelItem, Message, OrderItem, OrderItemInc, UpdItem } from './type';
+
+import {
+  DelItem,
+  Message,
+  OrderItemInc,
+  UpdItem,
+  UpdOrder,
+} from './type';
 
 export const addCartFetch = async (prodId: number): Promise<Message> => {
   const res = await fetch('/api/cart', {
@@ -50,6 +55,15 @@ export const updateOrderItemFetch = async (item: UpdItem): Promise<UpdItem> => {
     body: JSON.stringify({
       count: item.count,
     }),
+  });
+  const data = await res.json();
+  return data;
+};
+export const sendOrderFetch = async (id: number): Promise<{message:string}> => {
+  console.log('fetch',id)
+  const res = await fetch(`/api/cart/${id}/close`, {
+    method: 'put',
+
   });
   const data = await res.json();
   return data;
