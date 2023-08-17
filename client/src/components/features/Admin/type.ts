@@ -1,4 +1,10 @@
-import { User } from '../Auth/type';
+export type User = {
+  id: number;
+  name: string;
+  phone: string;
+  password: string;
+  isAdmin: boolean;
+};
 
 export type Product = {
   id: number;
@@ -45,6 +51,7 @@ export type AddProduct = {
   categoryId: number;
   description: string;
 };
+
 export type OrderInc = {
   id: number;
   user_id: number;
