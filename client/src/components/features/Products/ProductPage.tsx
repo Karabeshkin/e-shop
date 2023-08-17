@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 import { RootState, useAppDispatch } from '../store/store';
 import { oneProductInit } from './productsSlice';
 import './Product.css';
+import NavbarMiddle from '../../NavbarMiddle/NavbarMiddle';
 
 function ProductPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -19,14 +20,26 @@ function ProductPage(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <div>
-      <img src={oneProduct?.Photos[0].url} alt="product" />
-      <div>{oneProduct?.title}</div>
-      <div>{oneProduct?.cost}</div>
-      <div>{oneProduct?.description}</div>
-      <button onClick={() => navigate(-1)} type="button">
-        Назад
-      </button>
+    <div className="CardPageOne">
+      <div className="CardMiddle">
+        <NavbarMiddle />
+        <div className="CardPageImg">
+          <div className='CardPageImgOne'>
+          <img src={oneProduct?.Photos[0].url} alt="product" />
+          </div>
+          <div className='CardPageList'>
+          <div>{oneProduct?.title}</div>
+          <div>{oneProduct?.cost}</div>
+          <div>{oneProduct?.description}</div>
+          </div>
+          <div className='buttonBack'>
+          <button onClick={() => navigate(-1)} type="button">
+            Назад
+          </button>
+         
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
