@@ -43,7 +43,6 @@ export const verificationFetch = async (): Promise<User> => {
   return data;
 };
 
-
 export const logOutFetch = async (): Promise<void> => {
   const res = await fetch('/api/auth/logout', { credentials: 'include' });
   if (!res.ok) {

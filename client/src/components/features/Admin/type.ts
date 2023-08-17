@@ -1,5 +1,4 @@
 import { User } from '../Auth/type';
-import { Order } from '../Cart/type';
 
 export type Product = {
   id: number;

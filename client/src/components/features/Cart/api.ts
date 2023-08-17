@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import { DelItem, Message, OrderItemInc, UpdItem } from './type';
 
 export const addCartFetch = async (prodId: number): Promise<OrderItemInc[]> => {

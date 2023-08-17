@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router';
-// import Navbar from '../features/Navbar/Navbar';
 import MainPage from '../features/MainPage/MainPage';
 import Registration from '../features/Auth/Registration';
 import Authorization from '../features/Auth/Authorization';
@@ -35,7 +34,6 @@ function App(): JSX.Element {
 
   return (
     <div className="App">
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/registration" element={<Registration />} />
         <Route path="/authorization" element={<Authorization />} />

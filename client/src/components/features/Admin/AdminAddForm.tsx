@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store/store';
 import { addProduct } from './adminSlice';
-import './Admin.css'
+import './Admin.css';
 
 function AdminAddForm(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -33,13 +33,13 @@ function AdminAddForm(): JSX.Element {
   };
 
   return (
-    <div className='formAdmin'>
+    <div className="formAdmin">
       <form
         action="submit"
         onSubmit={addAdminProduct}
         style={{ width: '1200px', marginLeft: '200px' }}
       >
-        <div >
+        <div>
           <input
             type="text"
             className="input_addItem"

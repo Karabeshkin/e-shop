@@ -49,18 +49,24 @@
 
 .price {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-content: center;
   align-items: center;
+  
 }
 .buttonDob {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 button img {
   width: 100%;
+  height: 100%;
+ 
 }
 
 .search {
@@ -119,9 +125,6 @@ button img {
   height: 60%;
 }
 
-.CardPageOne {
-}
-
 .CardPageList {
   display: flex;
   flex-wrap: wrap;
@@ -149,6 +152,24 @@ a {
   width: 30% !important;
 }
 
+.buttons{
+  display: flex;
+
+}
+.buttoncard{
+  width: 30px;
+  height: 30px;
+margin: 5px;
+}
+.CardDiv{
+  background-color: bisque;
+  margin: 2%;
+  margin-bottom: 10%;
+  width: 20%;
+  border-radius: 15px;
+
+
 .foto{
   margin-top: 5%;
+
 }

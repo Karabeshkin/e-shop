@@ -1,4 +1,3 @@
-// import * as React from 'react';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { State } from './type';
 import * as api from './api';

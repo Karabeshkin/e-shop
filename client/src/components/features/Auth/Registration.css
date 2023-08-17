@@ -35,5 +35,14 @@ form {
   border-radius: 5%;
 }
 
-button {
+.regBut {
+  margin-right: 1%;
+  background-color: bisque;
+  border-radius: 7px;
+  border-color: bisque;
+  font-size: 22px;
+}
+.regButDiv {
+  display: flex;
+  justify-content: flex-end;
 }

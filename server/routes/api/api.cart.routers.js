@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 const router = require('express').Router();
-const { Order, OrderItem, Product, Photo } = require('../../db/models');
+const {
+  Order, OrderItem, Product, Photo,
+} = require('../../db/models');
 
 router.post('/', async (req, res) => {
   try {
