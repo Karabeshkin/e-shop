@@ -12,6 +12,7 @@ function ProductPage(): JSX.Element {
   const { title, idProd } = useParams();
   const oneProduct = useSelector((store: RootState) => store.products.product);
 
+
   useEffect(() => {
     if (idProd && title) {
       dispatch(oneProductInit({ title, idProd }));

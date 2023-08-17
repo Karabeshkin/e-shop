@@ -1,7 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Product } from './type';
-import { useAppDispatch } from '../store/store';
+import { RootState, useAppDispatch } from '../store/store';
 import { addFavorite, delFavorite } from '../Favorites/favoritesSlice';
 import { addCartThunk } from '../Cart/cartSlice';
 import './Product.css';
@@ -15,6 +16,7 @@ function ProductCard({
   title: string | undefined;
   status: string;
 }): JSX.Element {
+  const user = useSelector((store: RootState) => store.auth.user);
   const dispatch = useAppDispatch();
 
   const addFavorites = (): void => {
@@ -46,12 +48,14 @@ function ProductCard({
         <div>{`Цена: ${product.cost}`}</div>
         <div className="buttons">
           <div className="productCard">
-            <button className="buttoncard" type="button" onClick={addCart}>
-              <img src="/cart.png" alt="cart" />
-            </button>
+            {user && (
+              <button className="buttoncard" type="button" onClick={addCart}>
+                <img src="/cart.png" alt="cart" />
+              </button>
+            )}
           </div>
           <div className="buttons">
-            {status !== 'favorites' && (
+            {user && status !== 'favorites' && (
               <div className="productCard">
                 <button
                   className="buttoncard"
@@ -63,7 +67,7 @@ function ProductCard({
               </div>
             )}
           </div>
-          {status === 'favorites' && (
+          {user && status === 'favorites' && (
             <div className="productCard">
               <button
                 className="buttoncard"
