@@ -28,9 +28,9 @@ function ProductPage(): JSX.Element {
             <img src={oneProduct?.Photos[0].url} alt="product" />
           </div>
           <div className="CardPageList">
-            <div>{oneProduct?.title}</div>
-            <div>{oneProduct?.cost}</div>
-            <div>{oneProduct?.description}</div>
+            <div>{`Наименование: ${oneProduct?.title}`}</div> 
+            <div>{`Цена: ${oneProduct?.cost}`}</div> 
+            <div>{`Описание: ${oneProduct?.description}`}</div>
           </div>
           <div className="buttonBack">
             <button onClick={() => navigate(-1)} type="button">
