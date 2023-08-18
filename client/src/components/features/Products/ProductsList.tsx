@@ -51,6 +51,7 @@ function ProductsList(): JSX.Element {
       <div className="search1">
         <input
           type="text"
+          className='search_input'
           onChange={handleSearch}
           value={inputValue}
           placeholder="искать на сайте"

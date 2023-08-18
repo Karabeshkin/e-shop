@@ -21,7 +21,10 @@ function Section(): JSX.Element {
       </div>
       <div className="DivspanSection">
         <img src="/pasta.png" alt="разное" />
-        <Link to='/categories/Макароны' className="spanSection"> Макароны </Link>
+        <Link to="/categories/Макароны" className="spanSection">
+          {' '}
+          Макароны{' '}
+        </Link>
       </div>
       <div className="DivspanSection">
         <img src="/ovoshi.png" alt="овощи" />
@@ -37,7 +40,7 @@ function Section(): JSX.Element {
         </Link>
       </div>
       <div className="DivspanSection">
-      <img src="/gotovo.png" alt="напитки " />
+        <img src="/gotovo.png" alt="напитки " />
         <Link to="/categories/Напитки" className="spanSection">
           {' '}
           Напитки{' '}
@@ -54,7 +57,7 @@ function Section(): JSX.Element {
         <img src="/hleb.png" alt="хлеб" />
         <Link to="/categories/Хлеб%20и%20выпечка" className="spanSection">
           {' '}
-          Хлеб и выпечка{' '}
+          Хлеб{' '}
         </Link>
       </div>
       <div className="DivspanSection">

@@ -46,10 +46,14 @@ function CartList(): JSX.Element {
             {orderItems.map((item: OrderItemInc) => (
               <Cart item={item} key={item.id} />
             ))}
-            <div>Итого: {fullPrice}</div>
-            <button type="button" onClick={sendOrder}>
-              Заказать
-            </button>
+            <div className="button_fp">
+              <div className="fullPrice">{`      Итого: ${fullPrice} руб.`}</div>
+              <div>
+                <button type="button" onClick={sendOrder}>
+                  Заказать
+                </button>
+              </div>
+            </div>
           </>
         ) : (
           <div>Ваша корзина пуста</div>

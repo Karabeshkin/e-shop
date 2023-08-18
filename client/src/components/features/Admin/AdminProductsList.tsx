@@ -21,9 +21,7 @@ function AdminProductsList(): JSX.Element {
     <div className="AdminPage">
       <div className="AdminPageMiddle">
         <NavbarMiddle />
-        <div className="AdminAddForm ">
-          <AdminAddForm />
-        </div>
+        <AdminAddForm />
         <div className="MapProduct">
           {adminProducts.map((product) => (
             <AdminProductCard product={product} key={product.id} />

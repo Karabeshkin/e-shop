@@ -26,12 +26,12 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
           </div>
           <div>{product.cost}</div>
           <div>{product.Category.title}</div>
-          <div>
+          <div className="btns_admin">
             <button type="button" onClick={delCard}>
-              x
+              Удалить
             </button>
             <button type="button" onClick={() => setUpdate((prev) => !prev)}>
-              upd
+              Изменить
             </button>
           </div>
         </>

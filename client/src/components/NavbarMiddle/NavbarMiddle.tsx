@@ -10,8 +10,8 @@ function NavbarMiddle(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
   const cartItems = useSelector(
     (store: RootState) => store.orderItems.orderItems
-  )
-  
+  );
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -27,8 +27,8 @@ function NavbarMiddle(): JSX.Element {
   useEffect(() => {
     if (cartItems.length > 0) {
       setCartCount(cartItems.reduce((acc, el) => acc + el.count, 0));
-    }else{
-      setCartCount(0)
+    } else {
+      setCartCount(0);
     }
   }, [cartItems]);
 
@@ -61,7 +61,7 @@ function NavbarMiddle(): JSX.Element {
               )}
               <div>
                 <Link to="/" className="" onClick={logOutFetch}>
-                  LogOut
+                  Выйти
                 </Link>
               </div>
             </>
@@ -71,7 +71,9 @@ function NavbarMiddle(): JSX.Element {
               <div>
                 <Link to="/admin">Админка</Link>
               </div>
-              <Link to="/admin/orders">Заказы</Link>
+              <div>
+                <Link to="/admin/orders">Заказы</Link>
+              </div>
               <div>
                 <Link to="/" className="" onClick={logOutFetch}>
                   Выйти

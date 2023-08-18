@@ -37,15 +37,16 @@
   justify-content: center;
   align-items: stretch;
   width: 100vw;
-  height: 100vh;
+  height: 100% !important;
   background-color: bisque;
 }
 
 .Cart {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  gap: 7px;
   margin: 1%;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
@@ -57,10 +58,29 @@
 
 .Cart img {
   border-radius: 10px;
-  width: 70%;
-  height: 60%;
+  width: 40%;
+  height: 30%;
 }
 
+.cartPhoto {
+  border-radius: 10px;
+  width: 50%;
+  height: 40%;
+}
+.Plus_Minus {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 7px;
+  align-items: center;
+}
+
+.button_fp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px !important;
+}
 .clasListName {
   display: flex;
   flex-wrap: wrap;
@@ -70,6 +90,7 @@
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   width: 60%;
+  height: max-content;
   flex-direction: row;
   align-content: flex-start;
 }
@@ -81,5 +102,6 @@
   align-content: center;
   justify-content: space-around;
   align-items: center;
+  margin-top: 1%;
   width: 80%;
 }

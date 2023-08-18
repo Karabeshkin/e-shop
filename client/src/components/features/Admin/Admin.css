@@ -1,12 +1,12 @@
 .AdminPage {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   width: 100vw;
   background-color: bisque;
-  align-content: flex-start;
+  align-content: center;
 }
 
 .formAdmin {
@@ -26,17 +26,31 @@
 .AdminPageMiddle {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
+  flex-direction: column;
+  align-items: center;
   margin: 1%;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   width: 60%;
-  justify-content: flex-start;
+  justify-content: center;
+}
+.updAdminForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
 }
 
 form {
   width: 100% !important;
   margin: 0px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 5% 0;
 }
 
 .MapProduct {
@@ -48,14 +62,26 @@ form {
   align-items: center;
 }
 
-.AdminAddForm {
+.formAdmin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   width: 100%;
-  margin-bottom: 5%;
+  margin: 0 0 5% 0;
+}
+.btns_admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .NewProductAdmin {
   width: 30%;
   margin-bottom: 5%;
+  padding: 2%;
   border: 1px solid bisque;
   border-radius: 10px;
 }
