@@ -7,7 +7,6 @@ import Authorization from '../features/Auth/Authorization';
 import CategoryPage from '../features/Category/CategoryPage';
 import AdminProductsList from '../features/Admin/AdminProductsList';
 import ProductPage from '../features/Products/ProductPage';
-import ProductsList from '../features/Products/ProductsList';
 import FavoritesList from '../features/Favorites/FavoritesList';
 import CartList from '../features/Cart/CartList';
 import { initFavorite } from '../features/Favorites/favoritesSlice';
