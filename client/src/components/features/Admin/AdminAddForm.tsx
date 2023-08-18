@@ -45,39 +45,33 @@ function AdminAddForm(): JSX.Element {
 
   return (
     <div className="formAdmin">
-      <form
-        action="submit"
-        onSubmit={addAdminProduct}
-        style={{ width: '1200px', marginLeft: '200px' }}
-      >
-        <div>
-          <input
-            type="text"
-            className="input_addItem"
-            placeholder="Название товара"
-            ref={name}
-          />
-          <input
-            type="number"
-            className="input_addItem"
-            placeholder="Укажите цену"
-            ref={cost}
-          />
-          <input type="file" id="file" ref={refImage} />
-          <select name="category" ref={categoryI}>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.title}
-              </option>
-            ))}
-          </select>
-          <input
-            type="text"
-            className="input_descriptionItem"
-            placeholder="Описание товара"
-            ref={description}
-          />
-        </div>
+      <form action="submit" onSubmit={addAdminProduct}>
+        <input
+          type="text"
+          className="input_addItem"
+          placeholder="Название товара"
+          ref={name}
+        />
+        <input
+          type="number"
+          className="input_addItem"
+          placeholder="Укажите цену"
+          ref={cost}
+        />
+        <input type="file" id="file" ref={refImage} />
+        <select name="category" ref={categoryI}>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.title}
+            </option>
+          ))}
+        </select>
+        <input
+          type="text"
+          className="input_descriptionItem"
+          placeholder="Описание товара"
+          ref={description}
+        />
         <button type="submit" className="btn_addItem">
           Создать товар
         </button>

@@ -20,23 +20,28 @@ function Cart({ item }: { item: OrderItemInc }): JSX.Element {
   };
   return (
     <div className="Cart">
-      <img src={item.Product.Photos[0].url} alt="product" />
+      <img
+        className="cartPhoto"
+        src={item.Product.Photos[0].url}
+        alt="product"
+      />
       <div className="cartBlock">
         <div>{item.Product.title}</div>
-        <button type="button" onClick={delItem}>
-          <img src="./garbage.png" alt="garbage" />
-          <div>{item.Product.cost}</div>
-        </button>
-        <div>
-          <button type="button" onClick={() => updMinus()}>
-            -
-          </button>
-          <div>{item.count}</div>
-          <button type="button" onClick={updPlus}>
-            +
-          </button>
-        </div>
+        <div>{item.Product.cost} руб.</div>
       </div>
+
+      <div className="Plus_Minus">
+        <button type="button" onClick={() => updMinus()}>
+          -
+        </button>
+        <div> {item.count} </div>
+        <button type="button" onClick={updPlus}>
+          +
+        </button>
+      </div>
+      <button type="button" onClick={delItem}>
+        <img src="./garbage.png" alt="garbage" />
+      </button>
     </div>
   );
 }

@@ -38,7 +38,7 @@ function App(): JSX.Element {
         <Route path="/registration" element={<Registration />} />
         <Route path="/authorization" element={<Authorization />} />
         <Route path="/" element={<MainPage />} />
-        <Route path="/:title" element={<ProductsList />} />
+        {/* <Route path="/:title" element={<ProductsList />} /> */}
         <Route path="/favorites" element={<FavoritesList />} />
         <Route path="/admin" element={<AdminProductsList />} />
         <Route path="/categories/:title" element={<CategoryPage />} />

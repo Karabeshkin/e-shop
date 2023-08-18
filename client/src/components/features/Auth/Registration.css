@@ -28,7 +28,7 @@ form {
   display: flex;
   flex-direction: column;
   flex-wrap: inherit;
-  width: 80%;
+  width: 60% !important;
   align-content: center;
   justify-content: flex-start;
   align-items: stretch;
