@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../features/store/store';
@@ -10,8 +10,8 @@ function NavbarMiddle(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
   const cartItems = useSelector(
     (store: RootState) => store.orderItems.orderItems
-  );
-
+  )
+  
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -27,6 +27,8 @@ function NavbarMiddle(): JSX.Element {
   useEffect(() => {
     if (cartItems.length > 0) {
       setCartCount(cartItems.reduce((acc, el) => acc + el.count, 0));
+    }else{
+      setCartCount(0)
     }
   }, [cartItems]);
 
@@ -83,4 +85,4 @@ function NavbarMiddle(): JSX.Element {
   );
 }
 
-export default NavbarMiddle;
+export default memo(NavbarMiddle);

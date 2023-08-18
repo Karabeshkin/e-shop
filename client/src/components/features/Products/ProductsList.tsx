@@ -42,7 +42,7 @@ function ProductsList(): JSX.Element {
     dispatch(setSearchQuery(event.target.value));
   };
 
-  const filteredProducts = products.filter((product) =>
+  const filteredProducts = products?.filter((product) =>
     product.title.toLocaleLowerCase().includes(searchQuery.toLowerCase())
   );
 
