@@ -4,7 +4,7 @@ import './Sale.css';
 function Sale(): JSX.Element {
   return (
     <div className="Sale">
-      <img src="./saleCard.png" alt="скидка" />
+      <img src="./banner.png" alt="скидка" />
     </div>
   );
 }
