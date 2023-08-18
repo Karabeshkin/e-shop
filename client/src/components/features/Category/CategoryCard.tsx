@@ -15,3 +15,4 @@ function CategoryCard({ category }: { category: Category }): JSX.Element {
 }
 
 export default CategoryCard;
+
